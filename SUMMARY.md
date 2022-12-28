@@ -17,7 +17,6 @@
   * [Implied Volatility](platform/optimal-pricing-algorithm/implied-volatility/README.md)
     * [Volatility Surface Research](platform/optimal-pricing-algorithm/implied-volatility/volatility-surface-research.md)
     * [Volatility Surface Oracle](platform/optimal-pricing-algorithm/implied-volatility/volatility-surface-oracle.md)
-  * [Fee Structure](platform/optimal-pricing-algorithm/fee-structure.md)
 * [Trade Execution & Clearing](platform/trade-execution-and-clearing/README.md)
   * [Transaction Flow](platform/trade-execution-and-clearing/transaction-flow.md)
   * [Exercising & Settlement](platform/trade-execution-and-clearing/exercising-and-settlement.md)
@@ -28,6 +27,7 @@
     * [Underwriting Options](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/underwriting-options.md)
     * [Option Expiration and Exercise](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/option-expiration-and-exercise.md)
     * [Exiting the Market (Withdrawals)](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/exiting-the-market-withdrawals.md)
+    * [Fee Structure](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/fee-structure.md)
 * [Meta-Vaults: Aggregated Pool Strategies](platform/meta-vaults-aggregated-pool-strategies.md)
 
 ## 💎 Meta-Economics <a href="#metaeconomy" id="metaeconomy"></a>
