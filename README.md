@@ -7,7 +7,7 @@ description: >-
 
 # Overview
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 _**The key problems Premia solves compared to other options protocols:‌**_
 
@@ -24,6 +24,6 @@ _**The key problems Premia solves compared to other options protocols:‌**_
 * **Self-incentivizing initial liquidity** - The automated pool pricing mechanism incentivizes liquidity providers to enter a pool from the time it's launched, to get the highest returns. This ensures lower slippage by the time the first options are bought from the pool.
 * **Dynamic Premia token rewards** - Liquidity providers and PREMIA staking users accrue PREMIA tokens over time through our Liquidity Mining program and vxPREMIA system, respectively. The amount rewarded depends on the size of their position and the length of the deposit (additionally, the amount of protocol fees generated determines the total size of rewards for PREMIA staking users).
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption><p>A list of some of the features that make Premia unique.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>A list of some of the features that make Premia unique.</p></figcaption></figure>
 
 **Continue reading to learn about the many other features and innovations that make Premia unique!**

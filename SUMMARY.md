@@ -60,6 +60,11 @@
 * [Branding Assets](developer-center/branding-assets.md)
 * [(soon) SDK](developer-center/soon-sdk.md)
 
+## Community Pages <a href="#community" id="community"></a>
+
+* [Community Resources](community/community-resources.md)
+* [Leaderboard](community/leaderboard.md)
+
 ## 🗄 Archive
 
 * [Archive (Deprecated)](archive/archive-deprecated/README.md)

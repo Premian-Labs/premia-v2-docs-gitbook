@@ -8,11 +8,17 @@ description: >-
 
 Current allocation is below, this is subject to change in combination with the implementation of [vxPremia](../vxpremia-core/) and [Blue Descent](../../governance/premian-civitas/blue-descent.md), however all changes require ratification via the [Vote Process.](../../governance/premian-civitas/premian-assembly.md)
 
-* 30% Cross-Chain Liquidity Mining Fund
-* 20% Development Fund
-* 10% Safety / Insurance Module
-* 10% Initial Community Distribution
-* 10% Founder Allocation
-* 10% Future Incentives Program
-* 5% Marketing and Education Fund
-* 5% Ecosystem Grants Fund
+* 30% Cross-Chain Liquidity Mining Fund (Liq Mining)
+* 20% Development Fund (Operator)
+* 10% Safety / Insurance Module (Operator)
+* 10% Initial Community Distribution (Bootstrap)
+* 10% Founder Allocation (Operator)
+* 10% Future Incentives Program (Partnerships)
+* 5% Marketing and Education Fund (Partnerships)
+* 5% Ecosystem Grants Fund (Partnerships)
+
+<figure><img src="../../.gitbook/assets/PremiaTokenomics_v1_Pie_3.png" alt=""><figcaption><p>Premia Tokenomics</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/PremiaTokenomics_v1_Emission_2.png" alt=""><figcaption><p>Emission Schedule</p></figcaption></figure>
+
+Detailed emission schedule can be found [here.](https://premia.community/tokenomics)
