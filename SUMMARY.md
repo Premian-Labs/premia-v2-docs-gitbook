@@ -29,6 +29,7 @@
     * [Exiting the Market (Withdrawals)](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/exiting-the-market-withdrawals.md)
     * [Fee Structure](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/fee-structure.md)
 * [Meta-Vaults: Aggregated Pool Strategies](platform/meta-vaults-aggregated-pool-strategies.md)
+* [🏦 Knox Vaults](https://docs.knoxvaults.com/)
 
 ## 💎 Meta-Economics <a href="#metaeconomy" id="metaeconomy"></a>
 

@@ -4,6 +4,11 @@ description: The Premia pools enable dynamic, strategic LP strategies at a proto
 
 # Meta-Vaults: Aggregated Pool Strategies
 
+{% hint style="success" %}
+Documentation for the first MetaVault deployed by:\
+[Knox Vaults](https://docs.knoxvaults.com/) (Now under the [Premia Umbrella!](https://twitter.com/PremiaFinance/status/1611387453985771520?s=20))
+{% endhint %}
+
 Meta vaults are designed to embed various LP strategies into new pools of liquidity that implement the strategies automatically. This is made possible by the Premia base pool architecture. As an LP, on several other platforms you are forced to take a universal "short volatility" position (i.e. underwrite calls and puts simultaneously), which can often be a losing bet in crypto. This is not the case on Premia, which enables asset and direction-specific option pools.
 
 Using the Premia option pools you can embed strategies such as:
