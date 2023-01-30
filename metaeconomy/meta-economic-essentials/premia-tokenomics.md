@@ -21,4 +21,4 @@ Current allocation is below, this is subject to change in combination with the i
 
 <figure><img src="../../.gitbook/assets/PremiaTokenomics_v1_Emission_2.png" alt=""><figcaption><p>Emission Schedule</p></figcaption></figure>
 
-Detailed emission schedule can be found [here.](https://premia.community/tokenomics)
+Detailed emission schedule can be found [here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vSUEqdTVLJKGIV8klVDzCtkIy6Y3drbsRnTGXlFHbu8wnHDWUTAa87cFjVhl0kV9QsyNz1-RAo7kwmY/pubhtml)
