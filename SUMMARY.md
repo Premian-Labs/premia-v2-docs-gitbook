@@ -39,3 +39,5 @@
 * [Resources](resources/resources.md)
 * [Research](resources/research.md)
 * [Smart Contract Technical Documentation](https://v3-docs.premia.finance/index.html)
+* [Academy Alpha](https://academy.premia.blue/)
+* [Blue Alpha (V3)](https://dev-01.premia.blue/)
