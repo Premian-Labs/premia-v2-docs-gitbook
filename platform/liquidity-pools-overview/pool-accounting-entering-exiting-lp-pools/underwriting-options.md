@@ -14,7 +14,7 @@ When an option is purchased, the following steps happen in a transaction:
 4. Places purchased option in ordered list, by expiration date
 5. Updates starting point of Free Capital
 
-![An option is purchased spanning two liquidity intervals, #0 fully and #1 partially.](../../../.gitbook/assets/6.png)
+![An option is purchased spanning two liquidity intervals, #0 fully and #1 partially.](<../../../.gitbook/assets/6 (1).png>)
 
 Suppose we have an option buyer, purchasing option A (assume it's an ETH/DAI call). The buy order will scan as many liquidity intervals as are needed to cover the position. In example above, Option A will cover entirely the liquidity in interval #0 and partially interval #1.
 

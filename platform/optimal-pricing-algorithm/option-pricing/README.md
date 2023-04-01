@@ -23,7 +23,7 @@ In traditional markets, some of the more popular models for option pricing are v
 
 Because of the crypto market reality, pricing models based on these assumption are unlikely to work. Furthermore, pricing models based on these assumptions are almost certain to cause large losses of capital for LPs or un-realistically high option prices for buyers.
 
-![Price level will trend towards the market-clearing C-level and is resilient to high volatility.](../../../.gitbook/assets/3.3.png)
+![Price level will trend towards the market-clearing C-level and is resilient to high volatility.](<../../../.gitbook/assets/3.3 (2).png>)
 
 ### **Our solution**
 

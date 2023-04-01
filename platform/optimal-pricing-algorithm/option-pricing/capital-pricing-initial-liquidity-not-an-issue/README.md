@@ -22,7 +22,7 @@ At $$C_0=5$$, the options in that pool are almost guaranteed to be overpriced (b
 \
 **Note:** The pools are liquidity aware. Every time liquidity is added, the C-level decreases. Every time options are purchased (causing free liquidity to be removed), the C-level increases.&#x20;
 
-![Price level will trend towards the market-clearing C-level and is resilient to high volatility.](../../../../.gitbook/assets/3.3.png)
+![Price level will trend towards the market-clearing C-level and is resilient to high volatility.](<../../../../.gitbook/assets/3.3 (2).png>)
 
 As LPs continue to deposit capital into the new pool, they will drive down the pool price levels to a market clearing price range, after some number of transactions, _n_. If we assume that, after _n_ transactions, the pool converges to the market clearing C-value, $$C_{clearing}$$, the LPs will continue earning market-competitive returns on their liquidity.
 

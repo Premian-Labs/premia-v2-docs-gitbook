@@ -18,11 +18,11 @@ Each option has a token pair (e.g. ETH/DAI), an option type (call or put), a str
 
 Call options provide the owner of the option the right (again, not an obligation) to purchase the described amount of underlying tokens at the specified strike price, by the option's maturity date. **Buyers of call options believe the underlying token could go up in price over time.**
 
-![Call options rise in value as the underlying token price rises in value.](<.gitbook/assets/2.2 (2).png>)
+![Call options rise in value as the underlying token price rises in value.](.gitbook/assets/2.2.png)
 
 Put options provide the owner of the option the right to sell the described amount of the underlying token at the described strike price, by the option's maturity date. **Buyers of put options believe the underlying token could go down in price over time.**
 
-![Put options rise in value as the underlying tokens drops in value.](<.gitbook/assets/2.1 (2).png>)
+![Put options rise in value as the underlying tokens drops in value.](<.gitbook/assets/2.1 (1).png>)
 
 **American options vs European options**
 

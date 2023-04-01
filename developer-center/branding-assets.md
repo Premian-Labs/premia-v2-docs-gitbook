@@ -4,7 +4,7 @@
 
 Full logo
 
-![](../.gitbook/assets/premia\_logo.svg)
+![](<../.gitbook/assets/premia\_logo (1).svg>)
 
 Logo symbol
 

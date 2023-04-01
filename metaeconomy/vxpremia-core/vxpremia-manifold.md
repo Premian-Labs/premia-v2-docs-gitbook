@@ -6,6 +6,6 @@ description: Brief visualization of a source chain Reward Manifold
 
 An example of a local instance of the vxPremia Manifold control mechanism.
 
-Further information can be found [here](https://app.gitbook.com/o/-MVIlSn7kmlQn-Efo4EA/s/-MbgdgFsrhOZxo9-P0bM/\~/changes/8up41EhaeSf6UPeyucll/metaeconomy/vxpremia-core#vxpremia-manifold-control)
+Further information can be found [here](https://docs.premia.finance/metaeconomy/vxpremia-core)
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>

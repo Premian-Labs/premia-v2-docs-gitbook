@@ -8,7 +8,7 @@ The Smart Deposit feature is based on a standard mathematical procedure called p
 
 The user submits a total amount for deposit and a market sentiment, and the Smart Deposit computes the fraction of the deposit to be swapped and allocated per pool. Once determined, these allocations are recommended to the user.
 
-![An example of a user depositing funds to pools using the Smart Deposit feature.](<../../.gitbook/assets/5 (3).png>)
+![An example of a user depositing funds to pools using the Smart Deposit feature.](<../../.gitbook/assets/5 (1).png>)
 
 The user is prompted to select a series of assets which they own, and is then prompted to select their market sentiment. The market sentiment selection has one of three settings: "bullish", "bearish", and "neutral". These settings determine which pools will be considered for deposit: calls, puts, or both.
 

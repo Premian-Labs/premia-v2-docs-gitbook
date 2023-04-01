@@ -42,7 +42,7 @@ This step size is used as input to an exponential decay function, to get $$e^{-(
 
 **Step -> n:**
 
-![Price level will trend towards the market-clearing C-level and is resilient to high volatility.](../../../.gitbook/assets/3.3.png)
+![Price level will trend towards the market-clearing C-level and is resilient to high volatility.](<../../../.gitbook/assets/3.3 (2).png>)
 
 Due to the volatility of user behavior, we are likely to see option purchases even if the buying price has not yet reached market equilibrium, so the C-value will go up and down, until it ultimately converges to within one digit percentage errors of the market clearing conditions.
 

@@ -12,7 +12,7 @@ _Premia utilizes automated tools such as Chainlink Keepers to process expired op
 
 Liquidity providers' capital is organized on deposit into Free Capital intervals, to ensure the fair sequencing of underwritten options. When an option is settled, for the newly freed capital to be returned to a Free Capital interval, it either has to exceed the minimum interval requirement for a new interval to be created, or the LP needs to have an existing Free Capital interval.&#x20;
 
-![Option collateral is added back to a liquidity provider's interval queue, if larger than the minimum interval size.](<../../../.gitbook/assets/10 (1).png>)
+![Option collateral is added back to a liquidity provider's interval queue, if larger than the minimum interval size.](../../../.gitbook/assets/10.png)
 
 1. If the LP has an existing Free Capital interval, the newly freed capital is added to this interval (the amount is increased).&#x20;
 2. If the LP has no existing Free Capital intervals, then should the newly freed capital exceed the minimum interval requirement, it is added at the back of the queue.

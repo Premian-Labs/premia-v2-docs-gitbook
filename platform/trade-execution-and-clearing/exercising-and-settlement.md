@@ -11,7 +11,7 @@ When a user buys an option, they **can exercise their option at any time after p
 
 **Exercising and settlement of a PUT option**
 
-![Put options rise in value as the underlying tokens drops in value.](<../../.gitbook/assets/2.1 (2).png>)
+![Put options rise in value as the underlying tokens drops in value.](<../../.gitbook/assets/2.1 (1).png>)
 
 If at the time of exercise, the price of the underlying asset is lower than the breakeven price, the put option is considered **In The Money**. In this case, the user is entitled to the payoff, which is equal to the strike price of the underlying minus the spot price. This difference is calculated automatically and settled **in cash** (the base token) to the option buyer.&#x20;
 
@@ -19,7 +19,7 @@ If at the time of exercise, the price of the underlying asset is lower than the 
 
 **Exercising and settlement of a CALL option**
 
-![Call options rise in value as the underlying token price rises in value.](<../../.gitbook/assets/2.2 (2).png>)
+![Call options rise in value as the underlying token price rises in value.](../../.gitbook/assets/2.2.png)
 
 If at the time of exercise, the price of the underlying asset is higher than the breakeven price, the call option is considered **In The Money**. In this case, the user is entitled to the payoff, which is equal to the strike price of the underlying minus the spot price. This difference is calculated automatically and settled **in the underlying asset** (the quote token) to the option buyer. \
 \

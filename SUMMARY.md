@@ -29,7 +29,7 @@
     * [Exiting the Market (Withdrawals)](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/exiting-the-market-withdrawals.md)
     * [Fee Structure](platform/liquidity-pools-overview/pool-accounting-entering-exiting-lp-pools/fee-structure.md)
 * [Meta-Vaults: Aggregated Pool Strategies](platform/meta-vaults-aggregated-pool-strategies.md)
-* [🏦 Knox Vaults](https://docs.knoxvaults.com/)
+* [🏦 Knox Vaults](https://docs.knox.premia.finance/)
 
 ## 💎 Meta-Economics <a href="#metaeconomy" id="metaeconomy"></a>
 
@@ -59,6 +59,7 @@
   * [Entities](developer-center/public-subgraph/entities.md)
   * [Query Examples](developer-center/public-subgraph/query-examples.md)
 * [Branding Assets](developer-center/branding-assets.md)
+* [🐞 Bug Bounty](developer-center/bug-bounty.md)
 * [(soon) SDK](developer-center/soon-sdk.md)
 
 ## Community Pages <a href="#community" id="community"></a>
