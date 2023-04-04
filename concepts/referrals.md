@@ -1,7 +1,5 @@
 # Referrals
 
-###
-
 Referrals serve as a way for users to earn additional revenue and decrease their own trading fees on the protocol, by attracting volume and revenue to the protocol.
 
 NOTES:

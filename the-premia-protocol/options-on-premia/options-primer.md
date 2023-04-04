@@ -4,8 +4,6 @@ description: This is an optional read
 
 # Options Primer
 
-### <mark style="color:blue;">Options Primer</mark>
-
 **The largest use case for options is hedging risk** (i.e. buying insurance against) the downside risk of tokens one already holds via put options or on the upside risk of tokens one does not already own (or is short) via call options.
 
 Options are also the most popular financial product to express views on volatility (and directional exposure). They exhibit many traits that allow users to curate their desired risk profiles by combining multiple options or using various expirations/strikes.

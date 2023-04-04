@@ -19,25 +19,49 @@
 * [Trading](concepts/trading.md)
 * [Fees](concepts/fees.md)
 * [Exercise & Settlement](concepts/exercise-and-settlement.md)
-* [Liquidity Mining](concepts/liquidity-mining.md)
 * [Vaults](concepts/vaults.md)
 * [Margin](concepts/margin.md)
 * [Oracles](concepts/oracles.md)
 * [Referrals](concepts/referrals.md)
 * [Advanced Exchange Concepts](concepts/advanced-exchange-concepts.md)
+* [Liquidity Mining](concepts/liquidity-mining.md)
 
 ## Governance
 
 * [Overview](governance/overview.md)
+* [Premian Civitas](governance/premian-civitas.md)
+* [Voting](governance/voting.md)
+* [Meta Economics](governance/meta-economics.md)
+* [V3 Change log](governance/v3-change-log.md)
 
-## Import from Notion
+## Contracts
 
-* [Raw](import-from-notion/raw.md)
-* [Notion Copy of Documentation](https://premia.notion.site/Concepts-9aa90f5ece9e4e6fa78da4bbc49ac224)
+* [V3 Protocol](contracts/v3-protocol/README.md)
+  * [Overview](contracts/v3-protocol/overview.md)
+  * [Guides](contracts/v3-protocol/guides.md)
+  * [Technical Reference](contracts/v3-protocol/technical-reference.md)
+* [Margin](contracts/margin.md)
+* [Vaults](contracts/vaults.md)
+* [VxPremia](contracts/vxpremia.md)
+* [Orderbook (RFQ)](contracts/orderbook-rfq.md)
+* [Universal Router](contracts/universal-router/README.md)
+  * [Overview](contracts/universal-router/overview.md)
+  * [Technical Reference](contracts/universal-router/technical-reference.md)
+
+## SDK
+
+* [Page 2](sdk/page-2.md)
+
+## API
+
+* [Page 3](api/page-3.md)
 
 ## Resources
 
-* [Resources](resources/resources.md)
+* [Media Kit](resources/media-kit.md)
+* [Bug Bounty](resources/bug-bounty.md)
+* [Audits](resources/audits.md)
+* [Community Groups](resources/community-groups.md)
 * [Research](resources/research.md)
 * [Smart Contract Technical Documentation](https://v3-docs.premia.finance/index.html)
 * [Academy Alpha](https://academy.premia.blue/)

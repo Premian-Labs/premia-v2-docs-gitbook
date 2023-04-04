@@ -4,7 +4,7 @@
 
 Range orders are at the core of concentrated liquidity, they allow LPs to deposit over a specific price range defined by a _lower price bound_ and _upper price bound_. Orders that span the minimum price width can replicate limit orders similar to orders placed on a limit order-book (if only crossed a single time), while orders spanning across multiple price points (called _ticks_) replicate orders placed _linearly_ over multiple adjacent prices. There is no commitment period for LP deposits. They can be withdrawn prior to expiration.
 
-Premia v3 uses an accounting method called _Split-User Accounting_. At the core, this accounting process allows LPs to define directional exposure of a range order. This is automatically determined based on the asset that is deposited (Collateral or Option Contracts) along with the orientation of the order relative to the current market price. Simply put, range orders provide _uni-directional_ exposure (either buy **or** sell). More information about how _Split-User Accounting_ works can be found in Section 4 of the Premia v3 whitepaper [here](../resources/research.md#whitepaper).
+Premia v3 uses an accounting method called _Split-User Accounting_. At the core, this accounting process allows LPs to define directional exposure of a range order. This is automatically determined based on the asset that is deposited (Collateral or Option Contracts) along with the orientation of the order relative to the current market price. Simply put, range orders provide _uni-directional_ exposure (either buy **or** sell). More information about how _Split-User Accounting_ works can be found in Section 4 of the Premia v3 whitepaper [here](https://premia.finance/v3.pdf).
 
 ### <mark style="color:blue;">Range Order (Basics)</mark>
 

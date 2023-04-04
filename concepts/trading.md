@@ -29,6 +29,34 @@ It is possible to both pay and receive premiums and / or collateral for an optio
 
 ### <mark style="color:blue;">Orderbook / RFQ System</mark>
 
+There is no direct way to receive a _quote_ from the Orderbook via contract call. This must be done via the SDK, a custom indexer such as a Subgraph, or Third Party tooling. This is because the orders are not stored directly on-chain, rather, an on-chain event is emitted with the details of each order. This enables off-chain indexers to track the state of the Orderbook in a decentralized, trustless manner.
+
+In addition to getting a quote, many other function calls can be executed via the `IPool` interface. The `fillQuoteRFQ` function allows a trader to fill an available quote from the Orderbook. When filling a quote, users will need to provide the corresponding `TradeQuote` struct, a `Signature` from the quote provider, and the designated `size` of the quote to fill.
+
+Traders can verify if a quote is still valid in the Orderbook by calling `isQuoteRFQValid` using the same inputs as `fillQuoteRFQ`. RFQ Orders can also be canceled using `cancelQuotesRFQ` , by passing a list of quotes to cancel, or the fill status of a quote checked using `getQuoteRFQFilledAmount`.
+
+Additionally, if there is a desire to do a swap before or after an RFQ trade, `fillQuoteRFQSwap` and `swapAndFillQuoteRFQ` can be used. More details can be found in the `IPool` interface within the Contract section.
+
 ### <mark style="color:blue;">Vaults</mark>
 
+Each vault will have its own unique contract and functions, however, each must implement the `IVault` interface to be integrated in the [Premia Interface](../#the-premia-interface) and [Premia V3 ](#user-content-fn-1)[^1]SDK. If a third party vault correctly implements the `IVault` interface, it is eligible to be added to the V3 Vault Registry, which means its quotes will be automatically included in platform-wide quote streams.
+
+Vaults need to implement the `getQuote` function, allowing users to request the vault’s price for a specific option (`strike`, `maturity`, `isCall`), including trade `size` and direction (`isBuy`). The vault should return both the `maxSize` and `price` for the trade, including a `maxSize` of 0 if the option is not offered by the vault. To enable quotes to be filled, vaults should implement the `trade` function with the same parameters as the `getQuote` function.
+
+In addition to implementing the above functions, vaults will additionally need to emit an `UpdateQuotes()` event (with no parameters) any time the vault’s quotes change, in order for the Premia Interface and Premia v3 SDK to track quote changes.
+
+Anyone interested in learning more about developing vaults on top of Premia v3, [Reach out](broken-reference) to build with us!
+
 ### <mark style="color:blue;">External Protocols / Third Parties</mark>
+
+It is entirely possible for other protocols/users/vaults to utilize the pools strictly as a settlement layer and exchange options outside of Premia. To be able to do this, the `writeFrom` function can be used.
+
+`writeFrom` is a method that will mint both the long and short option, and send each to the designated addresses for `underwriter` and `longReceiver`. In order to invoke this function, the collateral for the short position must be provided. Using the `writeFrom` function will incur a transaction fee equal to 0.3% of the notional value:
+
+$$
+Minting\:Fee = 0.003*Size*Collateral
+$$
+
+Collateral is 1 for calls and the strike price for puts. In other words, the minting fee here is denominated in the collateral of the option.
+
+[^1]: 

@@ -1,7 +1,5 @@
 # Options on Premia
 
-### <mark style="color:blue;">Options on Premia</mark>
-
 Premia options are [ERC-1155 tokens](https://eips.ethereum.org/EIPS/eip-1155) that offer the holder the right (but not the obligation) to buy or sell the underlying token on a specified date. While traditional stock option contracts usually represent 100 shares of the underlying stock, options on Premia represent the same number of tokens as described.
 
 _For example**,** a 100 ETH call option represents the right to buy 100 ETH at the option's strike price by the option's maturity date._
