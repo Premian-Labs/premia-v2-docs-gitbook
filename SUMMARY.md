@@ -37,7 +37,6 @@
 ## Contracts
 
 * [V3 Protocol](contracts/v3-protocol/README.md)
-  * [Overview](contracts/v3-protocol/overview.md)
   * [Guides](contracts/v3-protocol/guides.md)
   * [Technical Reference](contracts/v3-protocol/technical-reference.md)
 * [Margin](contracts/margin.md)
@@ -50,11 +49,14 @@
 
 ## SDK
 
-* [Page 2](sdk/page-2.md)
+* [Overview](sdk/overview.md)
+* [Guides](sdk/guides.md)
+* [Technical Reference](sdk/technical-reference.md)
 
 ## API
 
-* [Page 3](api/page-3.md)
+* [Orderbook API](api/orderbook-api.md)
+* [Subgraph API](api/subgraph-api.md)
 
 ## Resources
 
