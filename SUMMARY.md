@@ -14,6 +14,7 @@
 
 ## Concepts
 
+* [Permit2](concepts/permit2.md)
 * [LP Range Orders](concepts/lp-range-orders.md)
 * [Trading](concepts/trading.md)
 * [Fees](concepts/fees.md)

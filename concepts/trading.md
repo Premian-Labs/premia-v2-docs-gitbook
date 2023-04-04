@@ -1,52 +1,34 @@
 # Trading
 
-###
+### <mark style="color:blue;">Overview</mark>
 
-#### Overview
+Long (short) options are represented as an [ERC-1155 token](https://eips.ethereum.org/EIPS/eip-1155) in a wallet. It allows any EOA or Contract address to easily transfer, trade, or exercise (settle) the option at a future time. When taking liquidity from any source, a transaction fee will need to be paid. More details on fees can be found [here](fees.md#trading-fees).
 
-Traders on the Premia v3 exchange (market takers) can receive a quote to buy (or sell) an option from (or to) LPs in an option pool at the quote price. If the taker accepts the quote, they can market buy (or sell) the option and pay (or receive) a premium in addition to receiving long (or short) option exposure, while also incurring a transaction fee.
+While all options settle within their respective pools, it’s possible to interact with _multiple_ sources of liquidity for the same option. Users of the [Premia Interface](../#the-premia-interface) or Premia v3 SDK will have easy access to the best quotes from each source. Please see here for more details about receiving a quote.
 
-In addition to quotes from option pools, traders may receive quotes from Vaults or the Orderbook API, which will be cleared and settled through the option pool for the specific option traded. Users of the Premia Interface or Premia v3 SDK will have easy access to the best quotes from each source.
+There could be up to 4 sources of liquidity for a given option:
 
-The long (or short) option is then owned by the purchaser and represented as an [ERC-1155 token](broken-reference)(https://eips.ethereum.org/EIPS/eip-1155) in their wallet, allowing the user to transfer the option, trade, or exercise (or settle) it at a future time.
+1. AMM - Range Orders
+2. Orderbook / RFQ System
+3. Vaults
+4. External Protocols / Third Parties
 
-\<aside>
+Interacting with the [AMM](trading.md#amm) and [Orderbook / RFQ](../the-premia-protocol/order-book-vs.-amm.md) System can be done directly via the `IPool` interface while [Vaults](vaults.md) and [External Protocols](trading.md#external-protocols-third-parties) would involve directly corresponding with their contracts or interfaces if not available on the Premia Interface or Premia v3 SDK.
 
-💡 The difference between a pool’s current `marketPrice` and `getTradeQuote` in the `IPool` interface is _price impact of a potenital trade_. This is a function of market liquidity and order size.
+### <mark style="color:blue;">AMM</mark>
 
-\</aside>
+Traders on the Premia v3 exchange - takers - can receive a quote to buy (sell) an option from LPs in an option pool at the given quote price using `getQuoteAMM`. If the taker deems the quote acceptable, they can `trade` the option and pay (receive) a premium in addition to receiving long (short) option contracts in the form of [ERC-1155 tokens](https://eips.ethereum.org/EIPS/eip-1155).
 
-#### Executing a Trade
+The trade function has 3 inputs: `size`, `isBuy`, and `premiumLimit`. The `size` parameter refers to the order size, `isBuy` is a boolean to signify trade direction, and `premiumLimit` is used for slippage control. If an order trades beyond the `premiumLimit`, ie. the average execution price of a buy (sell) order is above (below) the `premiumLimit`, the transaction will revert.
 
-**Example:** Buying a call option
+{% hint style="info" %}
+The difference between a pool’s current `marketPrice` and `getQuoteAMM` in the `IPool` interface is the _price impact_ of a potential trade. This is a function of market liquidity and order size, where more a higher ratio of order size to existing liquidity will result in a higher price impact and vice versa.
+{% endhint %}
 
-**1**. Send a request to the router for the pool, specifying the following values:
+It is possible to both pay and receive premiums and / or collateral for an option in the token of a user’s choice. This requires the user to define their swap parameters in the form of _calldata_, which will enable the swap to be executed on-chain before or after the necessary action to convert a token. The `swapAndTrade` and `tradeAndSwap` functions on each AMM pool can be used to facilitate this feature. More details can be found in the `IPool` interface within the Contract section.
 
-* **strike price**
-* maturity
-* option type
-* size of option
+### <mark style="color:blue;">Orderbook / RFQ System</mark>
 
-_(example: ETH/USDC call option, with strike price 3,500 USDC; maturity 30 days; option size of 2 ETH)‌_
+### <mark style="color:blue;">Vaults</mark>
 
-\<aside>
-
-💡 _**Keep in mind these details are automatically sent to the correct Pool to retrieve a quote for the user when a specific option is selected on the Premia web interface.**_
-
-\</aside>
-
-**2.** Pool sends back a quoted price for the option.
-
-**(e.g: 0.1 ETH)‌**
-
-**3.** If the user agrees with the price, they can confirm and execute a transaction to purchase the option at the specified price (allowing for slippage, in case another user simultaneously purchases an option from the pool). If the user would like, they can purchase the option with any token in their wallet (e.g: 200 USDC), and the token will be automatically swapped at the optimized market-rate to the token required to purchase the option (e.g: 0.1 ETH).
-
-**4.** When the transaction is confirmed, the user receives the European option they purchased. The user can then exercise the option at any time after expiration to unlock the rewarded tokens in the option and return the remaining capital to the pool. After expiration, if an option has not been exercised, its exercise value is locked to the value of the option at the time of exercise.
-
-This ensures the option holder always receives the full value of their option and liquidity providers can immediately recover their capital after expiration.
-
-\<aside>
-
-💡 **Users can close previous trades by selling (or buying) the option back to (or from) the pool at the market price.**
-
-\</aside>
+### <mark style="color:blue;">External Protocols / Third Parties</mark>
