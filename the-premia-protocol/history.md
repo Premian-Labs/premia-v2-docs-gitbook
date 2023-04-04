@@ -4,12 +4,17 @@ Premia is a peer-to-peer options exchange and settlement engine built for the Et
 
 There are currently three versions of the Premia protocol:
 
-* **Premia v1:** Peer-to-peer order-book based options exchange
-  * Launched early 2021
-  * Deprecated late 2021
-* **Premia v2:** AMM-based options exchange
-  * Launched late 2021
-* **Premia v3:** Concentrated AMM-based options exchange w/ peer-to-peer order network
-  * Launched early 2023
+<mark style="color:blue;">**Premia v1:**</mark> Peer-to-peer order-book based options exchange
+
+* Launched early 2021
+* Deprecated late 2021
+
+<mark style="color:blue;">**Premia v2:**</mark> <mark style="color:blue;"></mark><mark style="color:blue;"></mark> AMM-based options exchange
+
+* Launched late 2021
+
+<mark style="color:blue;">**Premia v3:**</mark> <mark style="color:blue;"></mark><mark style="color:blue;"></mark> Concentrated AMM-based options exchange w/ peer-to-peer order network
+
+* Launched early 2023
 
 The protocol has advanced in functionality and efficiency with each new iteration. Previous versions will remain accessible with 100% uptime (even post-deprecation) via the Ethereum blockchain (though some features might not be maintained, such as the volatility surface for each token).
