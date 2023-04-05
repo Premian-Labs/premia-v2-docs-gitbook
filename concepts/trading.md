@@ -31,7 +31,7 @@ It is possible to both pay and receive premiums and / or collateral for an optio
 
 There is no direct way to receive a _quote_ from the Orderbook via contract call. This must be done via the SDK, a custom indexer such as a Subgraph, or Third Party tooling. This is because the orders are not stored directly on-chain, rather, an on-chain event is emitted with the details of each order. This enables off-chain indexers to track the state of the Orderbook in a decentralized, trustless manner.
 
-In addition to getting a quote, many other function calls can be executed via the `IPool` interface. The `fillQuoteRFQ` function allows a trader to fill an available quote from the Orderbook. When filling a quote, users will need to provide the corresponding `TradeQuote` struct, a `Signature` from the quote provider, and the designated `size` of the quote to fill.
+Excluding quotes, many other function calls can be executed via the `IPool` interface. The `fillQuoteRFQ` function allows a trader to fill an available quote from the Orderbook. When filling a quote, users will need to provide the corresponding `TradeQuote` struct, a `Signature` from the quote provider, and the designated `size` of the quote to fill.
 
 Traders can verify if a quote is still valid in the Orderbook by calling `isQuoteRFQValid` using the same inputs as `fillQuoteRFQ`. RFQ Orders can also be canceled using `cancelQuotesRFQ` , by passing a list of quotes to cancel, or the fill status of a quote checked using `getQuoteRFQFilledAmount`.
 

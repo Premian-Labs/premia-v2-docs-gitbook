@@ -22,21 +22,17 @@
 * [Vaults](concepts/vaults.md)
 * [Margin](concepts/margin.md)
 * [Oracles](concepts/oracles.md)
-* [Referrals](concepts/referrals.md)
-* [Advanced Exchange Concepts](concepts/advanced-exchange-concepts.md)
 * [Liquidity Mining](concepts/liquidity-mining.md)
-
-## Governance
-
-* [Overview](governance/overview.md)
-* [Premian Civitas](governance/premian-civitas.md)
-* [Voting](governance/voting.md)
-* [Meta Economics](governance/meta-economics.md)
-* [V3 Change log](governance/v3-change-log.md)
+* [Referrals](concepts/referrals.md)
+* [Advanced Exchange Concepts](concepts/advanced-exchange-concepts/README.md)
+  * [Orderbook & Request-for-Quote (RFQ)](concepts/advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md)
+  * [Token Integration Requirements](concepts/advanced-exchange-concepts/token-integration-requirements.md)
+  * [Flash Swaps and Loans](concepts/advanced-exchange-concepts/flash-swaps-and-loans.md)
 
 ## Contracts
 
 * [V3 Protocol](contracts/v3-protocol/README.md)
+  * [Overview](contracts/v3-protocol/overview.md)
   * [Guides](contracts/v3-protocol/guides.md)
   * [Technical Reference](contracts/v3-protocol/technical-reference.md)
 * [Margin](contracts/margin.md)
@@ -46,6 +42,14 @@
 * [Universal Router](contracts/universal-router/README.md)
   * [Overview](contracts/universal-router/overview.md)
   * [Technical Reference](contracts/universal-router/technical-reference.md)
+
+## Governance
+
+* [Overview](governance/overview.md)
+* [Premian Civitas](governance/premian-civitas.md)
+* [Voting](governance/voting.md)
+* [Meta Economics](governance/meta-economics.md)
+* [V3 Change log](governance/v3-change-log.md)
 
 ## SDK
 

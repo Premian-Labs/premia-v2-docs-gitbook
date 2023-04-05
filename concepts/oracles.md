@@ -61,7 +61,7 @@ Any price feed that implements the `IOracleAdapter` smart contract interface can
 
 ## <mark style="color:blue;">IV Oracle</mark>
 
-Notes:
+<mark style="color:red;">\<UNFINISHED SECTION SEE NOTES BELOW></mark>
 
 Pending a change to amberdata instead of Deribit
 

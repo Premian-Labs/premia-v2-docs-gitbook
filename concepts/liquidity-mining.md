@@ -2,6 +2,8 @@
 
 ## <mark style="color:blue;">Overview</mark>
 
+*
+*
 * Explain the purpose of liquidity mining is to subsidize liquidity and grow protocol volume/revenue, while decentralizing ownership of token to real users of the platform
 * Probably give a small history on successful liquidity mining, including Curve and Premia v2
 

@@ -1,7 +1,5 @@
 # Margin
 
-###
-
 ## <mark style="color:blue;">Overview</mark>
 
 Margin in of itself is a type of vault. It is built _on top_ of the base layer. This segregation from the base layer insures solvency and ability to guarantee payout as a settlement engine. Users who choose to utilize margin must do so through the margin vault. This experience is simplified for users of the Premia Interface or Premia v3 SDK. One of the major differences between using margin and using the base layer is that positions held by users on the base layer can be withdrawn and freely moved. Conversely, positions that utilize margin can not be withdrawn.
