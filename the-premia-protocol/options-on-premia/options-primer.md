@@ -8,7 +8,7 @@ description: This is an optional read
 
 Options are also the most popular financial product to express views on volatility (and directional exposure). They exhibit many traits that allow users to curate their desired risk profiles by combining multiple options or using various expirations/strikes.
 
-#### **Call options vs. Put options**
+### **Call options vs. Put options**
 
 Call options provide the owner of the option the right, not an obligation, to purchase the described amount of underlying tokens at the specified strike price, by the option's maturity date. **Buyers of call options believe the underlying token **_**could**_** go up in price over time beyond the cost of the premium paid.**
 
@@ -18,11 +18,11 @@ Put options provide the owner of the option the right to sell the described amou
 
 <figure><img src="../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
-#### **The Greeks**
+### **The Greeks**
 
 The specific risk metrics of each option can be measured in terms of 5 common variables, often called _The Greeks_. Traders often use these metrics to compare the risk profiles of different options and make decisions as to which option closer meets their strategy. It is important to keep in mind that The Greeks are dynamic, based on current market prices, and are constantly changing, meaning the variables are instantaneous in nature and should not be considered long-term truth values.
 
-**Delta**
+#### **Delta**
 
 The change of option price due to price change of the underlying token. Call options have positive delta, put options have negative delta.
 
@@ -30,7 +30,7 @@ The change of option price due to price change of the underlying token. Call opt
 _A Delta of 0.5 means the option price changes $0.50 for every $1.00 change in the price of the underlying token pair._
 {% endhint %}
 
-**Gamma**
+#### **Gamma**
 
 Rate of change of the option Delta given a change in price of the underlying token. Gamma is positive if you are long an option (call or put) and negative is you are short an option (call or put).
 
@@ -38,7 +38,7 @@ Rate of change of the option Delta given a change in price of the underlying tok
 _A Gamma of .01 means the Delta will go up(down) by .01 for every $1.00 change up(down) in the price of the underlying token pair._
 {% endhint %}
 
-**Theta**
+#### **Theta**
 
 The change in option price caused by time value decay. Theta is positive if you are short an option (call or put) and negative is you are long an option (call or put).
 
@@ -46,7 +46,7 @@ The change in option price caused by time value decay. Theta is positive if you 
 _A Theta of -5 means the option price will decay at a rate of $5 every day prior to expiration (all else being equal)._
 {% endhint %}
 
-**Vega**
+#### **Vega**
 
 The change in option price caused by a change in an options implied volatility. Vega is positive if you are long an option (call or put) and negative is you are short an option (call or put).
 
@@ -54,7 +54,7 @@ The change in option price caused by a change in an options implied volatility. 
 _A Vega of 2 means the option price will increase(decrease) by $2 for every 1% increase(decrease) in the option’s implied volatility._
 {% endhint %}
 
-**Rho**
+#### **Rho**
 
 The change in option price caused by a 1% change in an options interest rate (typically the risk free rate). Calls have a positive Rho, Puts have a negative Rho.
 

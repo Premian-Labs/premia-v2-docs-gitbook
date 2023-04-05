@@ -1,8 +1,8 @@
 # Oracles
 
-### <mark style="color:blue;">Price Feed Oracles</mark>
+## <mark style="color:blue;">Price Feed Oracles</mark>
 
-#### Price Feed Overview
+### Price Feed Overview
 
 In order to create an options market for a given token pair, a valid oracle must be available to determine the value of an option (based on spot price) at expiration. Premia v3 pools can be established out-of-the-box with [Chainlink VWAP Price feeds](oracles.md#chainlink) or [Uniswap v3 TWAP Price feeds](oracles.md#uniswap-v3). Additionally, any Price Oracle implementing the `IOracleAdapter` interface can be used to initialize a new option pool.
 
@@ -10,7 +10,7 @@ By default, options will be automatically settled by an address maintained by th
 
 For convenience a keeper bot is then used to hydrate each pool with its corresponding settlement price if the option has expired. However, this value can also be populated within each pool by _any_ user who calls the `exercise` or `settle` functions.
 
-#### Chainlink
+### Chainlink
 
 Chainlink has many available feeds which can be found [here](https://docs.chain.link/data-feeds/price-feeds/addresses?network=arbitrum). If a direct pair is not available when a pair is upserted to the `ChainlinkAdapter`, an attempt will be made to combine multiple price paths to create a valid price feed.
 
@@ -28,7 +28,7 @@ Ideally, the settlement price of _any_ option would be determined by the spot pr
 &#x20;While it is not expected to be a common occurrence to delay settlement by up to 12 hours, price feed or liquidity issues can happen.
 {% endhint %}
 
-#### Uniswap v3
+### Uniswap v3
 
 Uniswap v3 pools can act like a time-weighted average price (TWAP) oracle for a given pair. This opens up the possibility for additional spot markets that may not be feasible with Chainlink oracles alone.
 
@@ -40,7 +40,7 @@ To _initialize_ an option pool using the `IUniswapV3Adapter`, Uniswap is queried
 
 A time-weighted average price is provided through two functions, `quote` and `quoteFrom`, the TWAP period is by default 10 minutes. `quote` provides the TWAP using the latest observation. An observation is a recording of the pool state at a given block, it is updated after a swap is performed, if an observation for the current block has not been made. All pools must meet the required cardinality. This simply means that there must be enough observations to calculate a TWAP over a 10 minute period. `quoteFrom` adds an additional parameter, `target`. The `target` is the starting point from which the TWAP is calculated. For example, a target of 8:00AM UTC and a TWAP period of 10 minutes means that the TWAP is calculated from 7:50AM UTC to 8:00AM UTC.
 
-The price for both functions is derived from aggregating the arithmetic mean tick and harmonic mean liquidity across active fee tiers, then calculate a weighted arithmetic mean tick. To learn more details about how Uniswap Price Oracles work, the [Uniswap v3 Handbook](https://uniswapv3book.com/docs/milestone5/price-oracle/) __ is a great place to start.
+The price for both functions is derived from aggregating the arithmetic mean tick and harmonic mean liquidity across active fee tiers, then calculate a weighted arithmetic mean tick. To learn more details about how Uniswap Price Oracles work, the [Uniswap v3 Handbook](https://uniswapv3book.com/docs/milestone5/price-oracle/) is a great place to start.
 
 {% hint style="info" %}
 It is also worth noting that Premia v3 option markets utilizing the `UniswapAdapter` require a Uniswap v3 pool on Arbitrum, since Arbitrum is the location of all option settlement for the protocol.
@@ -55,11 +55,11 @@ If a TWAP is _not available_ for this timestamp range, there are a couple action
 1. A valid price _prior_ to 750AM UTC is returned by Uniswap.
 2. If the oldest observation available is _after_ expiration, we will set the 10 min TWAP using the oldest observation.
 
-#### 3rd Party Oracles
+### 3rd Party Oracles
 
 Any price feed that implements the `IOracleAdapter` smart contract interface can be used to initialize a new pool. However, only well-established price feeds will be shown directly to users on the Premia Interface or using the Premia v3 SDK.
 
-### <mark style="color:blue;">IV Oracle</mark>
+## <mark style="color:blue;">IV Oracle</mark>
 
 Notes:
 

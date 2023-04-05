@@ -1,6 +1,6 @@
 # Trading
 
-### <mark style="color:blue;">Overview</mark>
+## <mark style="color:blue;">Overview</mark>
 
 Long (short) options are represented as an [ERC-1155 token](https://eips.ethereum.org/EIPS/eip-1155) in a wallet. It allows any EOA or Contract address to easily transfer, trade, or exercise (settle) the option at a future time. When taking liquidity from any source, a transaction fee will need to be paid. More details on fees can be found [here](fees.md#trading-fees).
 
@@ -15,7 +15,7 @@ There could be up to 4 sources of liquidity for a given option:
 
 Interacting with the [AMM](trading.md#amm) and [Orderbook / RFQ](../the-premia-protocol/order-book-vs.-amm.md) System can be done directly via the `IPool` interface while [Vaults](vaults.md) and [External Protocols](trading.md#external-protocols-third-parties) would involve directly corresponding with their contracts or interfaces if not available on the Premia Interface or Premia v3 SDK.
 
-### <mark style="color:blue;">AMM</mark>
+## <mark style="color:blue;">AMM</mark>
 
 Traders on the Premia v3 exchange - takers - can receive a quote to buy (sell) an option from LPs in an option pool at the given quote price using `getQuoteAMM`. If the taker deems the quote acceptable, they can `trade` the option and pay (receive) a premium in addition to receiving long (short) option contracts in the form of [ERC-1155 tokens](https://eips.ethereum.org/EIPS/eip-1155).
 
@@ -27,7 +27,7 @@ The difference between a pool’s current `marketPrice` and `getQuoteAMM` in the
 
 It is possible to both pay and receive premiums and / or collateral for an option in the token of a user’s choice. This requires the user to define their swap parameters in the form of _calldata_, which will enable the swap to be executed on-chain before or after the necessary action to convert a token. The `swapAndTrade` and `tradeAndSwap` functions on each AMM pool can be used to facilitate this feature. More details can be found in the `IPool` interface within the Contract section.
 
-### <mark style="color:blue;">Orderbook / RFQ System</mark>
+## <mark style="color:blue;">Orderbook / RFQ System</mark>
 
 There is no direct way to receive a _quote_ from the Orderbook via contract call. This must be done via the SDK, a custom indexer such as a Subgraph, or Third Party tooling. This is because the orders are not stored directly on-chain, rather, an on-chain event is emitted with the details of each order. This enables off-chain indexers to track the state of the Orderbook in a decentralized, trustless manner.
 
@@ -37,7 +37,7 @@ Traders can verify if a quote is still valid in the Orderbook by calling `isQuot
 
 Additionally, if there is a desire to do a swap before or after an RFQ trade, `fillQuoteRFQSwap` and `swapAndFillQuoteRFQ` can be used. More details can be found in the `IPool` interface within the Contract section.
 
-### <mark style="color:blue;">Vaults</mark>
+## <mark style="color:blue;">Vaults</mark>
 
 Each vault will have its own unique contract and functions, however, each must implement the `IVault` interface to be integrated in the [Premia Interface](../#the-premia-interface) and [Premia V3 ](#user-content-fn-1)[^1]SDK. If a third party vault correctly implements the `IVault` interface, it is eligible to be added to the V3 Vault Registry, which means its quotes will be automatically included in platform-wide quote streams.
 
@@ -47,7 +47,7 @@ In addition to implementing the above functions, vaults will additionally need t
 
 Anyone interested in learning more about developing vaults on top of Premia v3, [Reach out](broken-reference) to build with us!
 
-### <mark style="color:blue;">External Protocols / Third Parties</mark>
+## <mark style="color:blue;">External Protocols / Third Parties</mark>
 
 It is entirely possible for other protocols/users/vaults to utilize the pools strictly as a settlement layer and exchange options outside of Premia. To be able to do this, the `writeFrom` function can be used.
 

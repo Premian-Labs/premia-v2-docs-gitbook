@@ -1,6 +1,6 @@
 # Fees
 
-### <mark style="color:blue;">Trading Fees</mark>
+## <mark style="color:blue;">Trading Fees</mark>
 
 Transaction fees are paid by traders taking liquidity (takers) and split between LPs (makers) and protocol stakeholders at a rate determined by governance. To retain higher composability, transaction fees are accumulated separately and not compounded back into LP positions.
 
@@ -18,9 +18,9 @@ $$
 NOTE: Trading Fees are claimable at _any_ time by calling the `claim` function on the `IPool` interface.
 {% endhint %}
 
-### <mark style="color:blue;">Pool Initialization Fee</mark>
+## <mark style="color:blue;">Pool Initialization Fee</mark>
 
-Pool creation is _permissionless\* **and fee based. The fee is dynamic and incentivizes users to initialize pools that are ATM and near-dated, as they are the cheapest to create. Additionally, discounts are provided for specific expirations and/or strikes that have not been initialized that would create spread trading opportunities. The formal math behind how this is determined can be found in Appendix A.2 of the**_ [Premia v3 _****_ whitepaper](https://premia.finance/v3.pdf)_**.**_
+Pool creation is _permissionless\* **and fee based. The fee is dynamic and incentivizes users to initialize pools that are ATM and near-dated, as they are the cheapest to create. Additionally, discounts are provided for specific expirations and/or strikes that have not been initialized that would create spread trading opportunities. The formal math behind how this is determined can be found in Appendix A.2 of the**_ [Premia v3 whitepaper](https://premia.finance/v3.pdf)_**.**_
 
 The fee for a pool initialization can be queried from the `IPoolFactory` interface using the initializationFee method. As a basic example, if a user wanted to initialize a 50 Delta option with 14 days to expiration, the fee to do so would be $25.
 
