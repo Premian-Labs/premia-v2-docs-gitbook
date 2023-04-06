@@ -62,7 +62,7 @@ Anyone can liquidate an at-risk position on-chain and collect a liquidation fee 
 
 ### Liquidation Fee
 
-The fee that is rewards to a liquidator is 0.3% of the total position value (capped at $10k USDC equivalent).
+The fee that is rewarded to a liquidator is 0.3% of the total position value (capped at $10k USDC equivalent).
 
 ### Liquidated Positions
 

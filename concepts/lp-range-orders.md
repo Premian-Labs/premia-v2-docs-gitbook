@@ -15,7 +15,7 @@ In order to define a range order, 3 primary inputs must be provided to the `depo
 * <mark style="color:orange;">Size (liquidity)</mark> ⇒ size of Collateral OR Option Contracts
 
 {% hint style="info" %}
-In order to find the pool address, users can query the `getPoolAddress` function in `IPoolFactory`.
+To find the pool address, users can query the `getPoolAddress` function in `IPoolFactory`.
 {% endhint %}
 
 When liquidity is deposited above the market price, this order can be initially viewed as _<mark style="color:red;">ask-side liquidity</mark>_. Similarly, deposits below the market price can be initially viewed as _<mark style="color:green;">bid-side liquidity</mark>_. As the market price moves up and down through a range, the liquidity provider collects maker fees, in addition to any exposure changes.
@@ -35,7 +35,7 @@ An ask-side range order with collateral can never be net _long_ options just as 
 If an LP deposits option contracts, they are suggesting that they would like to close their position_._ Bid-side orders can be made with short option contracts, and Ask-side orders can be made with long option contracts. These order types can be thought of as “buy-to-close” and “sell-to-close” order types initially. As markets traverse back and forth through these range orders, an LP may re-establish the original option exposure they deposited with.
 
 {% hint style="info" %}
-An ask-side range order with long options can never get net short options. A bid-side order with short options can never get net long options.
+An ask-side range order with _long options_ can never get net short options. A bid-side order with short options can never get net long options.
 {% endhint %}
 
 ## <mark style="color:blue;">Range Order (Detailed)</mark>
@@ -73,7 +73,7 @@ Additionally, a user will specify the `lower` and `upper` ticks for their range 
 
 ### Finding belowLower and belowUpper Ticks
 
-Providing the belowLower and belowUpper tick values can easily be done by first calling getNearestTicksBelow view function with the lower and upper of the Position to be deposited. The pool will verify that the ticks are in the correct location before inserting and confirming the deposit. The following relationship is verified:
+Providing the `belowLower` and `belowUpper` tick values can easily be done by first calling `getNearestTicksBelow` view function with the `lower` and `upper` of the Position to be deposited. The pool will verify that the ticks are in the correct location before inserting and confirming the deposit. The following relationship is verified:
 
 $$
 belowLower <= lower <= belowLower.right \\
@@ -81,22 +81,20 @@ belowUpper <= upper <= belowUpper.right
 $$
 
 {% hint style="info" %}
-The insert location is not searched for within each `deposit` transaction, because of the gas costs associated with inserting into the [doubly linked list](https://en.wikipedia.org/wiki/Doubly\_linked\_list) of ticks. By first finding the nearest ticks for the function off-chain and then verifying correctness on-chain, users can significantly reduce transaction costs per `deposit`.
+The insert location is not searched for within each `deposit` transaction, because of the gas costs associated with inserting into the [doubly linked list](https://en.wikipedia.org/wiki/Doubly\_linked\_list) of ticks. By first finding the nearest ticks for the function off-chain (view function) and then verifying correctness on-chain, users can significantly reduce transaction costs per `deposit`.
 {% endhint %}
 
 ### Determining minimum and maximum market price
 
 In addition to `belowLower`, `belowUpper`, and `size`, users must also supply a `minMarketPrice` and `maxMarketPrice` when directly interacting with the `deposit` function. Market price here refers to the _option’s_ price. By specifying a min/max market price for the option, LPs can get granular control of the composition of asset(s) that are used for collateral. It can be thought of as slippage control for asset composition.
 
-These slippage controls are primarily helpful for orders that are intended to be solely _bid-side_ or _ask-side_ liquidity with a **single** collateral type (options **OR** collateral), when an LP holds a mixture of options and collateral in their wallet, but strictly wants to `deposit` only one or the other. When placing a range order that is close to the market price, there is risk of an unintended straddle. This risk can be prevented by correcting defining the `minMarketPrice` and `maxMarketPrice` parameters.
-
-If no slippage controls are desired, the values can be set to the minimum and maximum tick for a pool.
+These slippage controls are primarily helpful for orders that are intended to be solely _bid-side_ or _ask-side_ liquidity with a **single** collateral type (option **OR** collateral). When LPs hold a mixture of options and collateral in their wallet, there is risk of using an unintended collateral type if a range order is placed close to the market price.  It is possible for a single sided range order to be an _unintended straddle_ (more on straddles below). This risk can be prevented by correcting defining the `minMarketPrice` and `maxMarketPrice` parameters.
 
 {% hint style="info" %}
-For example, if the current market price is 0.55 and a user wants to place a bid-side order from 0.4 ↔ 0.5, they can set their `minMarketPrice` to 0.5 to prevent the order from slipping to become a straddle if the market price moved down into the range before the `deposit` transaction was executed. In this case, `maxMarketPrice` can be set to the maximum tick for the pool.
+If no slippage controls are desired, the values can be set to the minimum and maximum tick for a pool.
 {% endhint %}
 
-### Range Orders than straddle market price
+### Range Orders that straddle market price
 
 It is possible to initialize a range order that _straddles_ the current market price. This would mean `Lower *Tick < Market Price < Upper Tick*`. In this case, a deposit will need to consist of **both** options **AND** collateral (linearly interpolated based on the core order inputs and market price).
 

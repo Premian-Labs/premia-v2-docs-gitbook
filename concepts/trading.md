@@ -17,7 +17,7 @@ Interacting with the [AMM](trading.md#amm) and [Orderbook / RFQ](../the-premia-p
 
 ## <mark style="color:blue;">AMM</mark>
 
-Traders on the Premia v3 exchange - takers - can receive a quote to buy (sell) an option from LPs in an option pool at the given quote price using `getQuoteAMM`. If the taker deems the quote acceptable, they can `trade` the option and pay (receive) a premium in addition to receiving long (short) option contracts in the form of [ERC-1155 tokens](https://eips.ethereum.org/EIPS/eip-1155).
+Traders (takers) on the Premia v3 exchange can receive a quote to buy (sell) an option from LPs in an option pool at the given quote price using `getQuoteAMM`. If the taker deems the quote acceptable, they can `trade` the option and pay (receive) a premium in addition to receiving long (short) option contracts in the form of [ERC-1155 tokens](https://eips.ethereum.org/EIPS/eip-1155).
 
 The trade function has 3 inputs: `size`, `isBuy`, and `premiumLimit`. The `size` parameter refers to the order size, `isBuy` is a boolean to signify trade direction, and `premiumLimit` is used for slippage control. If an order trades beyond the `premiumLimit`, ie. the average execution price of a buy (sell) order is above (below) the `premiumLimit`, the transaction will revert.
 
@@ -25,17 +25,29 @@ The trade function has 3 inputs: `size`, `isBuy`, and `premiumLimit`. The `size`
 The difference between a pool’s current `marketPrice` and `getQuoteAMM` in the `IPool` interface is the _price impact_ of a potential trade. This is a function of market liquidity and order size, where more a higher ratio of order size to existing liquidity will result in a higher price impact and vice versa.
 {% endhint %}
 
-It is possible to both pay and receive premiums and / or collateral for an option in the token of a user’s choice. This requires the user to define their swap parameters in the form of _calldata_, which will enable the swap to be executed on-chain before or after the necessary action to convert a token. The `swapAndTrade` and `tradeAndSwap` functions on each AMM pool can be used to facilitate this feature. More details can be found in the `IPool` interface within the Contract section.
+It is possible to pay/receive premium/collateral for an option in the token of a user’s choice. This requires the user to define their swap parameters in the form of _calldata_, which will enable the swap to be executed on-chain before or after the necessary action to convert a token. The `swapAndTrade` and `tradeAndSwap` functions on each AMM pool can be used to facilitate this feature. More details can be found in the `IPool` interface within the Contract section.
 
 ## <mark style="color:blue;">Orderbook / RFQ System</mark>
 
-There is no direct way to receive a _quote_ from the Orderbook via contract call. This must be done via the SDK, a custom indexer such as a Subgraph, or Third Party tooling. This is because the orders are not stored directly on-chain, rather, an on-chain event is emitted with the details of each order. This enables off-chain indexers to track the state of the Orderbook in a decentralized, trustless manner.
+### Makers
 
-Excluding quotes, many other function calls can be executed via the `IPool` interface. The `fillQuoteRFQ` function allows a trader to fill an available quote from the Orderbook. When filling a quote, users will need to provide the corresponding `TradeQuote` struct, a `Signature` from the quote provider, and the designated `size` of the quote to fill.
+Market Makers can provide quotes to the Orderbook either via [Orderbook API](../api/orderbook-api.md) (off-chain) or on-chain via  `add` within the `IOrderbookStream` interface. Orders are _not_ stored directly on-chain, rather, an on-chain event is emitted with the details of each order. This acts as a transparent/capital efficient database for orders. Off-chain indexers can track the state of the Orderbook through these events.
 
-Traders can verify if a quote is still valid in the Orderbook by calling `isQuoteRFQValid` using the same inputs as `fillQuoteRFQ`. RFQ Orders can also be canceled using `cancelQuotesRFQ` , by passing a list of quotes to cancel, or the fill status of a quote checked using `getQuoteRFQFilledAmount`.
+A quote will have several parameters, among them a `deadline`. The deadline will specify how long a quote will be valid for.  Alternatively, orders can be cancelled using `cancelQuotesRFQ` in the `IPool` Interface if an order needs to be cancelled before the deadline is reached.  Multiple quotes can be cancelled at once by passing a list of quotes.  Cancelling quotes can only be done on-chain.&#x20;
 
-Additionally, if there is a desire to do a swap before or after an RFQ trade, `fillQuoteRFQSwap` and `swapAndFillQuoteRFQ` can be used. More details can be found in the `IPool` interface within the Contract section.
+### Takers
+
+While takers will _fill_ their order on-chain, the process of _getting_ a quote is done off-chain via the [Orderbook API](../api/orderbook-api.md).   We index all quotes in our subgraph, which users can get from the [Orderbook API](../api/orderbook-api.md). &#x20;
+
+Once a taker has a quote they would like to fill, the order details need to be passed on-chain. The `fillQuoteRFQ` function can be used to fill a quote using the `IPool` Interface. When filling a quote, users will need to provide the corresponding `TradeQuote` struct, a `Signature` from the quote provider, and the designated `size` of the quote to fill.
+
+Traders can verify if a quote is still valid in the Orderbook by calling `isQuoteRFQValid` with the same inputs as `fillQuoteRFQ`. It is also possible to check the fill status of a quote by using `getQuoteRFQFilledAmount`.
+
+If there is a desire to do a collateral swap before or after an RFQ trade, `fillQuoteRFQSwap` and `swapAndFillQuoteRFQ` can be used. More details can be found in the `IPool` interface within the Contract section.
+
+
+
+More details on how the orderbook works can be found in Advanced Concepts under [Orderbook & Request-for-Quote (RFQ)](advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md)
 
 ## <mark style="color:blue;">Vaults</mark>
 

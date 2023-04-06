@@ -14,7 +14,7 @@
 
 ## Concepts
 
-* [Permit2](concepts/permit2.md)
+* [Overview](concepts/overview.md)
 * [LP Range Orders](concepts/lp-range-orders.md)
 * [Trading](concepts/trading.md)
 * [Fees](concepts/fees.md)
@@ -24,7 +24,7 @@
 * [Oracles](concepts/oracles.md)
 * [Liquidity Mining](concepts/liquidity-mining.md)
 * [Referrals](concepts/referrals.md)
-* [Advanced Exchange Concepts](concepts/advanced-exchange-concepts/README.md)
+* [Advanced Exchange Concepts](concepts/advanced-exchange-concepts.md)
   * [Orderbook & Request-for-Quote (RFQ)](concepts/advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md)
   * [Token Integration Requirements](concepts/advanced-exchange-concepts/token-integration-requirements.md)
   * [Flash Swaps and Loans](concepts/advanced-exchange-concepts/flash-swaps-and-loans.md)
