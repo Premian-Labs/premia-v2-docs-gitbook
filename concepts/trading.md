@@ -43,11 +43,11 @@ Once a taker has a quote they would like to fill, the order details need to be p
 
 Traders can verify if a quote is still valid in the Orderbook by calling `isQuoteRFQValid` with the same inputs as `fillQuoteRFQ`. It is also possible to check the fill status of a quote by using `getQuoteRFQFilledAmount`.
 
-If there is a desire to do a collateral swap before or after an RFQ trade, `fillQuoteRFQSwap` and `swapAndFillQuoteRFQ` can be used. More details can be found in the `IPool` interface within the Contract section.
+If there is a desire to do a collateral swap before or after an RFQ trade, `fillQuoteRFQAndSwap` and `swapAndFillQuoteRFQ` can be used. More details can be found in the `IPool` interface within the Contract section.
 
 
 
-More details on how the orderbook works can be found in Advanced Concepts under [Orderbook & Request-for-Quote (RFQ)](advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md)
+More details on how the orderbook architecture can be found in Advanced Concepts under [Orderbook & Request-for-Quote (RFQ)](advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md)
 
 ## <mark style="color:blue;">Vaults</mark>
 
