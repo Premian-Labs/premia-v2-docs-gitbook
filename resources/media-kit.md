@@ -1,3 +1,17 @@
+---
+description: Figma Assets
+---
+
 # Media Kit
 
-<figure><img src="../.gitbook/assets/architectural-engineering-home-construction-new-york-city-artframe-royalty-free-under-construction-removebg-preview (5).png" alt=""><figcaption></figcaption></figure>
+[Figma Assets](https://www.figma.com/file/l1IOmg8OsI3NEPBTlLfAgq/Premia---Marketing-Resources?type=design\&node-id=0%3A1\&t=XeFk5T2hJi0bdMTM-1)
+
+{% @figma/embed fileId="l1IOmg8OsI3NEPBTlLfAgq" nodeId="0:1" url="https://www.figma.com/file/l1IOmg8OsI3NEPBTlLfAgq/Premia---Marketing-Resources?type=design&node-id=0%3A1&t=XeFk5T2hJi0bdMTM-1" fullWidth="false" %}
+
+{% file src="../.gitbook/assets/image (2).png" %}
+
+{% file src="../.gitbook/assets/image.png" %}
+
+{% file src="../.gitbook/assets/image (1).png" %}
+
+{% file src="../.gitbook/assets/image (3).png" %}
