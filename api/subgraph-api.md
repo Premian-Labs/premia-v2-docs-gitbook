@@ -6,8 +6,8 @@ The Premia Subgraph is available on every chain the protocol is available on. Th
 
 These subgraphs are hosted on The Graph hosted service and can be used to query Premia data.
 
-**Premia V3**[**​**](https://docs.uniswap.org/api/subgraph/overview#v3)
+<mark style="color:blue;">**Premia V3 Arbitrum Goerli**</mark>[**​**](https://docs.uniswap.org/api/subgraph/overview#v3)
 
-* Explorer Page: [https://thegraph.com/hosted-service/subgraph/totop716/murai-premia-dev](https://thegraph.com/hosted-service/subgraph/totop716/murai-premia-dev)
-* Graphql Endpoint: <mark style="color:red;">\<GRAPHQL ENDPOINT></mark>
-* Code: <mark style="color:red;">\<GITHUB LOCATION></mark>
+* Explorer Page: [https://thegraph.com/hosted-service/subgraph/premiafinance/v3-arbitrum-goerli](https://thegraph.com/hosted-service/subgraph/premiafinance/v3-arbitrum-goerlihttps://api.thegraph.com/subgraphs/name/premiafinance/v3-arbitrum-goerlihttps://github.com/Premian-Labs/v3-subgraph)
+* Graphql Endpoint: [https://api.thegraph.com/subgraphs/name/premiafinance/v3-arbitrum-goerli](https://thegraph.com/hosted-service/subgraph/premiafinance/v3-arbitrum-goerlihttps://api.thegraph.com/subgraphs/name/premiafinance/v3-arbitrum-goerlihttps://github.com/Premian-Labs/v3-subgraph)
+* Code: [https://github.com/Premian-Labs/v3-subgraph](https://github.com/Premian-Labs/v3-subgraph)
