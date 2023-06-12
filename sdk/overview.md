@@ -1,6 +1,6 @@
 # Overview
 
-The Premia SDK is available in most modern web and mobile programming languages (Python, Javascript, Typescript, Swift, Java, Kotlin, Go, etc). The codebase can be used to query data stored in smart contracts or to modify data on-chain by signing and executing transactions on-chain.
+The Premia SDK is available in Typescript and is The codebase can be used to query data stored in smart contracts or to modify data on-chain by signing and executing transactions on-chain.
 
 The SDK is separated into three main groups, for simple understanding:
 

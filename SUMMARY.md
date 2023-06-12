@@ -19,7 +19,6 @@
 * [Trading](concepts/trading.md)
 * [Fees](concepts/fees.md)
 * [Exercise & Settlement](concepts/exercise-and-settlement.md)
-* [Vaults](concepts/vaults.md)
 * [Margin](concepts/margin.md)
 * [Oracles](concepts/oracles.md)
 * [Liquidity Mining](concepts/liquidity-mining.md)
@@ -28,6 +27,7 @@
   * [Orderbook & Request-for-Quote (RFQ)](concepts/advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md)
   * [Token Integration Requirements](concepts/advanced-exchange-concepts/token-integration-requirements.md)
   * [Flash Swaps and Loans](concepts/advanced-exchange-concepts/flash-swaps-and-loans.md)
+* [Vaults](concepts/vaults.md)
 
 ## Contracts
 
@@ -38,7 +38,7 @@
 * [Margin](contracts/margin.md)
 * [Vaults](contracts/vaults.md)
 * [VxPremia](contracts/vxpremia.md)
-* [Orderbook (RFQ)](contracts/orderbook-rfq.md)
+* [Orderbook](contracts/orderbook.md)
 * [Universal Router](contracts/universal-router/README.md)
   * [Overview](contracts/universal-router/overview.md)
   * [Technical Reference](contracts/universal-router/technical-reference.md)
@@ -59,7 +59,10 @@
 
 ## API
 
-* [Orderbook API](api/orderbook-api.md)
+* [Orderbook API](api/orderbook-api/README.md)
+  * [Quick Start](api/orderbook-api/quick-start.md)
+  * [Publish Quote(s)](api/orderbook-api/publish-quote-s.md)
+  * [Get Quotes](api/orderbook-api/get-quotes.md)
 * [Subgraph API](api/subgraph-api.md)
 
 ## Resources

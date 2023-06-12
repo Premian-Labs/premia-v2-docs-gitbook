@@ -6,7 +6,7 @@ Connecting to the UI can be done via the following wallets. If you do not have a
 
 <figure><img src=".gitbook/assets/Screenshot 2023-03-28 at 12.22.21 PM.png" alt=""><figcaption></figcaption></figure>
 
-Premia V3 is currently available solely on [Arbitrum Mainnet](https://arbitrum.io/), while the orderbook is available on [Arbitrum Nova](https://nova.arbitrum.io/).
+Premia V3 is currently available solely on [Arbitrum Mainnet](https://arbitrum.io/).   If using MetaMask as a wallet,  you can visit [Arbitrum One (42161)](https://chainlist.org/chain/42161)  (or [Arbitrum Goerli (421613)](https://chainlist.org/chain/421613) if using testnet) and add the chain quickly and easily.&#x20;
 
 ## <mark style="color:blue;">Selecting an Option</mark>
 
