@@ -34,14 +34,12 @@
 * [V3 Protocol](contracts/v3-protocol/README.md)
   * [Overview](contracts/v3-protocol/overview.md)
   * [Guides](contracts/v3-protocol/guides.md)
-  * [Technical Reference](contracts/v3-protocol/technical-reference.md)
+  * [Smart Contract Technical Documentation](https://v3-docs.premia.finance/index.html)
 * [Margin](contracts/margin.md)
-* [Vaults](contracts/vaults.md)
-* [VxPremia](contracts/vxpremia.md)
 * [Orderbook](contracts/orderbook.md)
-* [Universal Router](contracts/universal-router/README.md)
-  * [Overview](contracts/universal-router/overview.md)
-  * [Technical Reference](contracts/universal-router/technical-reference.md)
+* [VxPremia](contracts/vxpremia.md)
+* [Universal Router](contracts/universal-router.md)
+* [Vaults](contracts/vaults.md)
 
 ## Governance
 
@@ -60,9 +58,8 @@
 ## API
 
 * [Orderbook API](api/orderbook-api/README.md)
-  * [Quick Start](api/orderbook-api/quick-start.md)
-  * [Publish Quote(s)](api/orderbook-api/publish-quote-s.md)
-  * [Get Quotes](api/orderbook-api/get-quotes.md)
+  * [REST API](api/orderbook-api/rest-api.md)
+  * [WEBSOCKET](api/orderbook-api/websocket.md)
 * [Subgraph API](api/subgraph-api.md)
 
 ## Resources
@@ -72,6 +69,5 @@
 * [Audits](resources/audits.md)
 * [Community Groups](resources/community-groups.md)
 * [Research](resources/research.md)
-* [Smart Contract Technical Documentation](https://v3-docs.premia.finance/index.html)
 * [Academy Alpha](https://academy.premia.blue/)
 * [Blue Alpha (V3)](https://dev-01.premia.blue/)
