@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/Card course cover image 46.jpg
+cover: .gitbook/assets/Welcome3.svg
 coverY: 0
 ---
 
