@@ -69,5 +69,5 @@
 * [Audits](resources/audits.md)
 * [Community Groups](resources/community-groups.md)
 * [Research](resources/research.md)
-* [Academy Alpha](https://academy.premia.blue/)
-* [Blue Alpha (V3)](https://dev-01.premia.blue/)
+* [🎓 Academy](https://academy.premia.blue/)
+* [🔵 Blue Alpha (V3)](https://app.premia.blue/)

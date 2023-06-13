@@ -6,7 +6,11 @@ description: Transaction Approval
 
 The following sections outline some of the technical concepts and core functionality within the ecosystem.  This section is intended for all user types. Where possible, corresponding inputs and function calls are provided.  For a complete list of function calls available, please reference [contracts](broken-reference).&#x20;
 
-#### Permit2
+#### Permit2&#x20;
+
+{% hint style="info" %}
+(Section Under Construction as Permit2 is Currently Pending Removal)
+{% endhint %}
 
 In traditional on-chain token transfers, users must approve a transfer amount _prior_ to a token transfer.  While this is not explicitly mentioned in the sections that follow, it should be common knowledge for many who have used web3 or smart contracts.
 

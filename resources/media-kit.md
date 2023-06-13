@@ -1,5 +1,5 @@
 ---
-description: Figma Assets
+description: Branding Assets
 ---
 
 # Media Kit
