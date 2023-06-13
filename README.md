@@ -1,3 +1,8 @@
+---
+cover: .gitbook/assets/Card course cover image 46.jpg
+coverY: 0
+---
+
 # What is Premia?
 
 To begin, we should make clear the distinctions between the different areas of "Premia", some of which may confuse new users.

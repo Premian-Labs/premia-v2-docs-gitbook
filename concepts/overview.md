@@ -8,8 +8,8 @@ The following sections outline some of the technical concepts and core functiona
 
 #### Permit2&#x20;
 
-{% hint style="info" %}
-(Section Under Construction as Permit2 is Currently Pending Removal)
+{% hint style="warning" %}
+Section Under Construction as Permit2 is Currently Pending Removal
 {% endhint %}
 
 In traditional on-chain token transfers, users must approve a transfer amount _prior_ to a token transfer.  While this is not explicitly mentioned in the sections that follow, it should be common knowledge for many who have used web3 or smart contracts.

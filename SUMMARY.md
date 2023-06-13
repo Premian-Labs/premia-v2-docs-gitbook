@@ -37,7 +37,7 @@
   * [Smart Contract Technical Documentation](https://v3-docs.premia.finance/index.html)
 * [Margin](contracts/margin.md)
 * [Orderbook](contracts/orderbook.md)
-* [VxPremia](contracts/vxpremia.md)
+* [vxPremia](contracts/vxpremia.md)
 * [Universal Router](contracts/universal-router.md)
 * [Vaults](contracts/vaults.md)
 
