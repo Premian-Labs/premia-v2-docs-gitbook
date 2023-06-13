@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/Welcome3.svg
+cover: .gitbook/assets/KnowledgeBase.svg
 coverY: 0
 ---
 
