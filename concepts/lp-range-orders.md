@@ -57,6 +57,28 @@ It is worth noting that pricing is linear, which means the average execution pri
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-03-23 at 12.15.57 PM.png" alt=""><figcaption></figcaption></figure>
 
+### Range Order Width
+
+$$
+RangeWidth = upperTick -lowerTick
+$$
+
+While the minimum tick precision for a market is 0.001, a range order must have a compatible _RangeWidth_.  Since liquidity for a range order is distributed evenly in between the ticks of a range order, it is possible to generate rounding errors using certain range widths.   While this is automatically handled on the front end to prevent bad order ranges, care must be taken for direct interaction with smart contracts to abide by
+
+A valid _RangeWidth_ for _any_ order type must be one of the following values:
+
+```
+ValidRangeWidths = [
+  0.001, 0.002, 0.004, 0.005, 0.008, 0.01, 0.016, 0.02, 0.025, 0.032,
+  0.04, 0.05, 0.064, 0.08, 0.1, 0.125, 0.128, 0.16, 0.2, 0.25, 0.256, 
+  0.32, 0.4, 0.5, 0.512, 0.625, 0.64, 0.8
+]
+```
+
+#### Example:
+
+A deposit of 1 unit of collateral (ie. WETH) for bid-side liquidity is desired. The lower tick is  .001 and corresponding upper tick is .004 (_RangeWidth_ = 0.003). This would mean that 1/3 of the liquidity would be distributed across each of the 3 ticks within the range.   This produces rounding errors that are undesirable even with 18 decimal places of precision for most ERC-20 assets. &#x20;
+
 ## <mark style="color:blue;">Range Order (Technical) - Deposits</mark>
 
 ### The Position.Key struct
