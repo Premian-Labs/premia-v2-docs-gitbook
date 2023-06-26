@@ -13,7 +13,7 @@ There could be up to 4 sources of liquidity for a given option:
 3. Vaults
 4. External Protocols / Third Parties
 
-Interacting with the [AMM](trading.md#amm) and [Orderbook / RFQ](../the-premia-protocol/order-book-vs.-amm.md) System can be done directly via the `IPool` interface while [Vaults](vaults.md) and [External Protocols](trading.md#external-protocols-third-parties) would involve directly corresponding with their contracts or interfaces if not available on the Premia Interface or Premia v3 SDK.
+Interacting with the [AMM](trading.md#amm) and [Orderbook / RFQ](../the-premia-protocol/order-book-vs.-amm.md) System can be done directly via the `IPool` interface while [Vaults](vaults/) and [External Protocols](trading.md#external-protocols-third-parties) would involve directly corresponding with their contracts or interfaces if not available on the Premia Interface or Premia v3 SDK.
 
 ## <mark style="color:blue;">AMM</mark>
 
