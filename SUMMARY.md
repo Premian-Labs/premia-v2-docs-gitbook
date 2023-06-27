@@ -28,6 +28,7 @@
   * [Token Integration Requirements](concepts/advanced-exchange-concepts/token-integration-requirements.md)
   * [Flash Swaps and Loans](concepts/advanced-exchange-concepts/flash-swaps-and-loans.md)
 * [Vaults](concepts/vaults/README.md)
+  * [APY Calculation](concepts/vaults/apy-calculation.md)
   * [Depot Explanation](concepts/vaults/depot-explanation.md)
   * [Underwriter Depot](concepts/vaults/underwriter-depot.md)
 
