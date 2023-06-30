@@ -87,6 +87,7 @@ publishQuote(mockQuotes)
 
 ```javascript
 import fetch from 'cross-fetch';
+import { parseEther } from 'ethers';
 
 const baseUrl = 'https://test.orderbook.premia.finance'
 
@@ -94,8 +95,8 @@ const baseUrl = 'https://test.orderbook.premia.finance'
 const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
 
 // Params
-const poolAddress='0xb9e594644D3BB24cfcBa3FA0289F18dB7cf81573'
-const size='5' //stringify float
+const poolAddress='0xb9e594644D3BB24cfcBa3FA0289F18dB7cf81573'.toLowerCase()
+const size= parseEther('5').toString()
 const side='bid'
 const chainId='421613'
 
