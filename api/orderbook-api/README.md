@@ -22,8 +22,20 @@ To _fill_ an order that was published to the orderbook, a user must call the fil
 
 Request-For-Quote is an additional feature available through the orderbook infrastructure in which users can publish _requests_ for a specific pool and receive _personalized_ quotes from market makers.
 
-Publishing and receiving _requests_ are done via WEBSOCKET.  Makers subscribe to listen to RFQ requests and upon receiving the requests may _publish_ a quote.  _The requester is the only one who can fill the quote._
+_What is an RFQ request look like? It is simply an object with the following details:_
+
+* <mark style="color:green;">poolAddress</mark> -> the pool address (option market) the quote is for
+* <mark style="color:green;">side</mark> -> either a 'bid' or 'ask'
+* <mark style="color:green;">chainId</mark> -> the chain id (Arbitrum One Mainnet or Goerli Arbitrum Testnet)
+* <mark style="color:green;">size</mark> -> the quantity that is be requested
+* <mark style="color:green;">taker</mark> -> the address of the user requesting the quote
+
+When a market maker receives this request, they will then generate a personalized quote and publish a quote to the orderbook for this request. &#x20;
+
+Publishing and receiving _requests_ are done via [WEBSOCKET](websocket.md).  Makers subscribe to listen to RFQ requests and upon receiving the requests may _publish_ a quote.  _The requester is the only one who can fill the quote._
 
 {% hint style="info" %}
 The main difference between an RFQ quote and an orderbook quote is that the `takerAddress` is not populated for standard orderbook quotes.  They can be filled by any taker address on Arbitrum One, where as an RFQ quote can only be filled by the address populated in the `takerAddress` field.&#x20;
+
+There is no guarantee that a quote will be returned back after publishing an RFQ request. &#x20;
 {% endhint %}

@@ -11,7 +11,7 @@ description: Overview
 | Arbitrum Goerli (421613) | https://test.orderbook.premia.finance |
 | Arbitrum One (42161)     | https://orderbook.premia.finance      |
 
-Users can access the [`GET` Quotes ](broken-reference)and [`POST` Quotes](broken-reference) methods of the REST API _directly_ using the `/quotes` end-point.  In order to use REST API endpoints, you must also pass in an API KEY
+Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](rest-api.md#publish-quotes) methods of the REST API _directly_ using the `/quotes` end-point.  Additionally, for users who have requested an RFQ quote, the quotes returned can be accessed via [`GET` rfq\_quotes](rest-api.md#get-rfq\_quotes).  In order to use REST API endpoints, you must also pass in an API KEY. &#x20;
 
 ### <mark style="color:blue;">Publish Quotes</mark>
 
@@ -101,8 +101,8 @@ const side='bid'
 const chainId='421613'
 
 
-async getQuotes(_addr, size, side, chainId){
-  const url = `${baseUrl}/quotes?poolAddress=${_addr}&size=${size}&side=${side}&chainId=${chainId}`
+async getQuotes(_addr, _size, _side, _chainId){
+  const url = `${baseUrl}/quotes?poolAddress=${_addr}&size=${_size}&side=${_side}&chainId=${_chainId}`
 	
   const response = await fetch(url, {
     headers: {
@@ -123,3 +123,8 @@ async getQuotes(_addr, size, side, chainId){
 
 getQuotes(poolAddress, size, side, chainId)
 ```
+
+### <mark style="color:blue;">Get rfq\_quotes</mark>
+
+<mark style="color:red;">\<INSERT YAML FOR RFQ QUOTES AND EXAMPLE></mark>
+
