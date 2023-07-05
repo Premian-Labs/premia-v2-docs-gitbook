@@ -2,25 +2,33 @@
 
 ### <mark style="color:blue;">Overview</mark>
 
-The Premia Orderbook API can be used to _<mark style="color:green;">provide</mark>_ and/or _<mark style="color:green;">get</mark>_ quotes from the orderbook and RFQ system for any deployed/deployable option pool.   The Orderbook API comprises of both a [REST API](rest-api.md) and a [WEBSOCKET](websocket.md).
+The Premia Orderbook API can be used to `Publish` and/or `Get` quotes from the orderbook and RFQ system for any deployed/deployable option pool.   The Orderbook API comprises of both a [REST API](rest-api.md) and a [WEBSOCKET](websocket.md).  There is no centralized dependency to `Publish` or `Get` quotes.  The orderbook API is simply a convenience wrapper around web3 calls.
+
+If desired, the API is also accessible through the [SDK](broken-reference)  via convenience wrapper functions.  It is not necessary to do direct calls to the API in order to use it.&#x20;
 
 {% hint style="info" %}
-Actions such as _cancelling_, _filling_, or _checking_ a quotes fillable status is done directly via the pool contract on Arbitrum One (see [pool contract](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html) for all available actions).  The reason for this is simply because the orderbook is merely a decentralized _broadcasting_ service for quotes. &#x20;
+Actions such as [_cancelling_](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#cancelquotesob), [_filling_](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#fillquoteob), or checking a quotes [fillable](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#isquoteobvalid) status is done directly via the pool contract for a specific option market on Arbitrum One (see [pool contract](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html) for all available actions).  The reason for this is simply because the orderbook is merely a decentralized _broadcasting_ service for quotes. &#x20;
 {% endhint %}
 
-If desired, the API is also available through the [SDK](broken-reference)  via convenience wrapper functions.  It is not necessary to do direct calls to the API in order to use it. There is no centralized dependency to `Publish` or `Get` quotes.  The orderbook API is simply a convenience wrapper around web3 calls that can be made by anyone.&#x20;
+### <mark style="color:blue;">Pool vs Orderbook</mark>
+
+Since all trades must make their way on-chain in some way shape or form, the pool contract for a specific market can be viewed as the "gateway" for this. The pool contract currently supports dual functionality for both interacting directly with the AMM and interacting with the Orderbook. Function which include `OB` in their name are designated for Orderbook functionality
 
 ### <mark style="color:blue;">Orderbook</mark>
 
-As mentioned in the [Orderbook Concepts](../../concepts/advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md), quotes are published (by emitting events) to Arbitrum Nova and can be accessed by anyone listening to events on-chain. The Orderbook API will publish quotes for market makers _on their behalf_ and aggregate public order events to create an limit orderbook for any deployed/deployable pool.&#x20;
+As mentioned in the [Orderbook Concepts](../../concepts/advanced-exchange-concepts/orderbook-and-request-for-quote-rfq.md), quotes are published (by emitting events) to Arbitrum Nova and can be accessed by anyone listening to events on-chain. The Orderbook API will publish quotes for market makers _on their behalf_ and aggregate public order events to create a limit orderbook for any deployed/deployable pool.&#x20;
 
-When posting an order, a `deadline` is provided in the quote object which specifies the duration a quote is valid for.  When a deadline is surpassed, the quote with expire without the need for action by the quote maker. However, if a user would like to prematurely void a quote before the deadline is hit, they must invoke the cancel function within the pool contract [here](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#cancelquotesrfq).&#x20;
+When posting an order, a `deadline` is provided in the quote object which specifies the duration a quote is valid for.  When a deadline is surpassed, the quote will expire without the need for action by the quote maker. However, if a user would like to prematurely void a quote before the deadline is hit, they must invoke the cancel function within the pool contract [here](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#cancelquotesob).&#x20;
 
-To _fill_ an order that was published to the orderbook, a user must call the fill function available on the pool contract [here](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#fillquoterfq). Filling orders (as a taker) will incur a transaction fee.  Please see [Fees](../../concepts/fees.md) for more details.&#x20;
+To _fill_ an order that was published to the orderbook, a user must call the fill function available on the pool contract [here](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#fillquoteob). Filling orders (as a taker) will incur a transaction fee.  Please see [Fees](../../concepts/fees.md) for more details.&#x20;
+
+{% hint style="warning" %}
+IMPORTANT: Unlike LP's, makers who utilize the orderbook do NOT collect trading fees.
+{% endhint %}
 
 ### <mark style="color:blue;">RFQ</mark>
 
-Request-For-Quote is an additional feature available through the orderbook infrastructure in which users can publish _requests_ for a specific pool and receive _personalized_ quotes from market makers.
+Request-For-Quote is an additional feature available through the orderbook infrastructure in which users can publish _requests_ for a specific pool and receive _personalized_ quotes from market makers.  Publishing a request can only be done via [WEBSOCKET](websocket.md), but receiving requests can be done via [REST API](rest-api.md) or [WEBSOCKET](websocket.md).
 
 _What is an RFQ request look like? It is simply an object with the following details:_
 
@@ -30,12 +38,12 @@ _What is an RFQ request look like? It is simply an object with the following det
 * <mark style="color:green;">size</mark> -> the quantity that is be requested
 * <mark style="color:green;">taker</mark> -> the address of the user requesting the quote
 
-When a market maker receives this request, they will then generate a personalized quote and publish a quote to the orderbook for this request. &#x20;
+When a market maker receives this request (via WEBSOCKET), they will then generate a personalized quote and publish a quote to the orderbook for this request.  There is no guarantee that a quote will be returned back after publishing an RFQ request.
 
-Publishing and receiving _requests_ are done via [WEBSOCKET](websocket.md).  Makers subscribe to listen to RFQ requests and upon receiving the requests may _publish_ a quote.  _The requester is the only one who can fill the quote._
+### <mark style="color:blue;">Orderbook vs. RFQ Quotes</mark>
 
-{% hint style="info" %}
-The main difference between an RFQ quote and an orderbook quote is that the `takerAddress` is not populated for standard orderbook quotes.  They can be filled by any taker address on Arbitrum One, where as an RFQ quote can only be filled by the address populated in the `takerAddress` field.&#x20;
+The main difference between an RFQ quote and an orderbook quote is that the `takerAddress` is not populated within the quote object for standard quotes.  This mean the quote can be filled by any taker address on Arbitrum One.  This makes the quote "public".  If the `takerAddress` is populated with an address, it can only be filled by this address, making the order "private".&#x20;
 
-There is no guarantee that a quote will be returned back after publishing an RFQ request. &#x20;
+{% hint style="success" %}
+_<mark style="color:orange;">NOTE: It is important for market makers to publish RFQ quotes with the</mark> <mark style="color:orange;"></mark><mark style="color:orange;">`takerAddress`</mark> <mark style="color:orange;"></mark><mark style="color:orange;">in the quote object populated with the</mark> <mark style="color:orange;"></mark><mark style="color:orange;">`taker`</mark> <mark style="color:orange;"></mark><mark style="color:orange;">address from the request (as opposed to Zero Address).</mark>_ While the quote is viewable by anyone, the quote can only be filled by the requester.
 {% endhint %}
