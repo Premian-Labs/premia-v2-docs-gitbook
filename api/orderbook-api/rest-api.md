@@ -1,5 +1,5 @@
 ---
-description: Overview
+description: Rest API End Points
 ---
 
 # REST API
@@ -11,7 +11,7 @@ description: Overview
 | Arbitrum Goerli (421613) | https://test.orderbook.premia.finance |
 | Arbitrum One (42161)     | https://orderbook.premia.finance      |
 
-Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](rest-api.md#publish-quotes) methods of the REST API _directly_ using the `/quotes` end-point.  Additionally, for users who have requested an RFQ quote, the quotes returned can be accessed via [`GET` rfq\_quotes](rest-api.md#get-rfq\_quotes).  In order to use REST API endpoints, you must also pass in an API KEY. &#x20;
+Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](rest-api.md#publish-quotes) methods of the REST API _directly_ using the `/quotes` end-point.  Additionally, for users who have requested an RFQ quote, the quotes returned can be accessed via [`GET` rfq\_quotes](rest-api.md#get-rfq\_quotes).  In order to use REST API endpoints, you must also pass in an [API KEY](./#api-key). &#x20;
 
 ### <mark style="color:blue;">Publish Quotes</mark>
 
@@ -23,6 +23,7 @@ Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](
 
 ```javascript
 import fetch from 'cross-fetch';
+import { parseEther } from 'ethers';
 
 const url = 'https://test.orderbook.premia.finance/quotes'
 
@@ -35,15 +36,15 @@ const mockQuotes = [{
     base: '0x9f5D1212514Ac88E26c523387C60F87B67AD1130',
     quote: '0x53421DB1f41368E028A4239954feB5033C7B3729',
     oracleAdapter: '0xB89756634Bae979d13721d9883e67CF22cc31D6b',
-    strike: '29000000000000000000000',
+    strike: parseEther('2900').toString(),
     maturity: 1688716800,
     isCallPool: false
   },
   chainId: '421613'
   provider: '0x9E600587b9035a8C1254E8256F4E588CC33B8467',
   taker: '0x0000000000000000000000000000000000000000',
-  price: '195000000000000000',
-  size: '1000000000000000000',
+  price: parseEther('.195').toString(),
+  size: parseEther('1').toString(),
   isBuy: false,
   deadline: 1686592096,
   salt: 1686584896,
@@ -144,7 +145,6 @@ const poolAddress='0xb9e594644D3BB24cfcBa3FA0289F18dB7cf81573'.toLowerCase()
 const side='bid'
 const chainId='421613'
 const takerAddress = '0xd18EE1c241e7A7e59797763C94d2Bd8C9169c831'
-
 
 
 async getRfqQuotes(_addr, _side, _chainId, _taker){

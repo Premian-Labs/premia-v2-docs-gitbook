@@ -10,6 +10,10 @@ If desired, the API is also accessible through the [SDK](broken-reference)  via 
 Actions such as [_cancelling_](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#cancelquotesob), [_filling_](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#fillquoteob), or checking a quotes [fillable](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html#isquoteobvalid) status is done directly via the pool contract for a specific option market on Arbitrum One (see [pool contract](https://v3-docs.premia.finance/contracts/pool/IPoolTrade.sol/interface.IPoolTrade.html) for all available actions).  The reason for this is simply because the orderbook is merely a decentralized _broadcasting_ service for quotes. &#x20;
 {% endhint %}
 
+### <mark style="color:blue;">API KEY</mark>
+
+In order to use the API directly or through the SDK, an api key is required.  Currently, all api key requests must be made to <mark style="color:blue;">support@premia.finance</mark>.  Please use subject line: 'API KEY REQUEST' and an api key will be returned. &#x20;
+
 ### <mark style="color:blue;">Pool vs Orderbook</mark>
 
 Since all trades must make their way on-chain in some way shape or form, the pool contract for a specific market can be viewed as the "gateway" for this. The pool contract currently supports dual functionality for both interacting directly with the AMM and interacting with the Orderbook. Function which include `OB` in their name are designated for Orderbook functionality
