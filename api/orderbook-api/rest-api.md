@@ -15,8 +15,8 @@ Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](
 
 ### <mark style="color:blue;">Publish Quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/quotes" method="post" %}
-[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/quotes" method="post" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 #### Example:
@@ -79,8 +79,8 @@ publishQuote(mockQuotes)
 
 ### <mark style="color:blue;">Get Quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/quotes" method="get" %}
-[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/quotes" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
 {% endswagger %}
 
 #### Example:
@@ -95,7 +95,7 @@ const baseUrl = 'https://test.orderbook.premia.finance'
 const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
 
 // Params
-const poolAddress='0xb9e594644D3BB24cfcBa3FA0289F18dB7cf81573'.toLowerCase()
+const poolAddress='0xb9e594644D3BB24cfcBa3FA0289F18dB7cf81573'
 const size= parseEther('5').toString()
 const side='bid'
 const chainId='421613'
@@ -126,5 +126,47 @@ getQuotes(poolAddress, size, side, chainId)
 
 ### <mark style="color:blue;">Get rfq\_quotes</mark>
 
-<mark style="color:red;">\<INSERT YAML FOR RFQ QUOTES AND EXAMPLE></mark>
+{% swagger src="../../.gitbook/assets/openapi.yaml" path="/rfq_quotes" method="get" %}
+[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% endswagger %}
 
+```javascript
+import fetch from 'cross-fetch';
+import { parseEther } from 'ethers';
+
+const baseUrl = 'https://test.orderbook.premia.finance'
+
+// Free or Paid Tier API KEY
+const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
+
+// Params
+const poolAddress='0xb9e594644D3BB24cfcBa3FA0289F18dB7cf81573'.toLowerCase()
+const side='bid'
+const chainId='421613'
+const takerAddress = '0xd18EE1c241e7A7e59797763C94d2Bd8C9169c831'
+
+
+
+async getRfqQuotes(_addr, _side, _chainId, _taker){
+  const url = `${baseUrl}/quotes?poolAddress=${_addr}&side=${_side}&chainId=${_chainId}&taker=${_taker}`
+	
+  const response = await fetch(url, {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-apikey': MOCK_API_KEY
+    }
+  })
+	
+  if (!response.ok) {
+    console.error('Request failed: ', await response.json())
+    throw new Error(`Failed to fetch quote: ${response.statusText}`)
+  }
+	
+  const rfqQuotes = await response.json()	
+  
+  return rfqQuotes
+}
+
+getRfqQuotes(poolAddress, side, chainId, takerAddress)
+
+```

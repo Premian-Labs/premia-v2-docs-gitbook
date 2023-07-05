@@ -14,6 +14,10 @@ Using the WEBSOCKET connection, it is possible to:
 * _<mark style="color:green;">receive</mark> RFQ_ requests (market makers)
 * _<mark style="color:green;">stream</mark>_ RFQ quotes from makers for an RFQ request
 
+### <mark style="color:blue;">Authorize Websocket</mark>
+
+\<UNDER CONSTRUCTION>
+
 ### <mark style="color:blue;">Subscribe to Quotes (Orderbook & RFQ)</mark>
 
 \<UNDER CONSTRUCTION>
