@@ -109,10 +109,11 @@ function connectWebsocket() {
 
 function sendMessage(_message){
   ws.onmessage = (event) => {
-    console.log("Message Sent!")
+    console.log(JSON.parse(event.data).message)
   }
   ws.send(JSON.stringify(_message))
   setTimeout(() => {
+    console.log("Closing connection")
     ws.close()
   }, 1000)
 }
@@ -167,10 +168,11 @@ function connectWebsocket() {
 
 function sendMessage(_message){
   ws.onmessage = (event) => {
-    console.log("Message Sent!")
+    console.log(JSON.parse(event.data).message)
   }
   ws.send(JSON.stringify(_message))
   setTimeout(() => {
+    console.log("Closing connection")
     ws.close()
   }, 1000)
 }
@@ -190,7 +192,7 @@ As a market maker who would like to provide quotes to users who want to utilize 
 const { WebSocket } = require('ws')
 
 const wsUrl = 'test.quotes.premia.finance'
-const MOCK_API_KEY = 'tcomp_3Zb5eacx8RV6oje1LrxpAG3a'
+const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
 
 const authMessage = {
   type: "AUTH",
@@ -225,10 +227,11 @@ function connectWebsocket() {
 
 function sendMessage(_message){
   ws.onmessage = (event) => {
-    console.log("Message Sent!")
+    console.log(JSON.parse(event.data).message)
   }
   ws.send(JSON.stringify(_message))
   setTimeout(() => {
+    console.log("Closing connection")
     ws.close()
   }, 1000)
 }
