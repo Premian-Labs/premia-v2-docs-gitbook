@@ -21,16 +21,15 @@ Using the WEBSOCKET connection, it is possible to:
 
 Upon connection with the Websocket server, users must send an `AUTH` message with an api key.  If this step is not done, any requests to _Stream_ quotes or _Publish_ RFQ requests will be denied.&#x20;
 
+
+
 {% tabs %}
 {% tab title="Authorization Websocket Example" %}
 ```javascript
 const { WebSocket } = require('ws')
+
 const wsUrl = 'test.quotes.premia.finance'
 const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
-
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
 
 const authMessage = {
   type: "AUTH",
@@ -38,30 +37,15 @@ const authMessage = {
   body: null
 }
 
-/*
-Optional params in body include:
-poolAddress -> specific option market
-size -> stringified 10^18 value
-side -> 'bid' or 'ask'
-taker -> taker address
-provider -> quote provider address
- */
-const filterMessage = {
-  type: 'FILTER',
-  channel: 'QUOTES',
-  body: {
-    chainId: '421613',
-    poolAddress: '0xeB785e131784ea28b6B64B605CF8aa83D69793b5'
-  }
-}
 
 const ws = new WebSocket(`wss://${wsUrl}`)
 function connectWebsocket() {
   ws.onopen = (event) => {
     console.log("Websocket connection open")
-    event.target.send(JSON.stringify(authMessage))
-    event.target.onmessage = (event) => {
+    ws.send(JSON.stringify(authMessage))
+    ws.onmessage = (event) => {
       console.log(JSON.parse(event.data).message)
+      ws.close()
     }
   }
 }
@@ -82,12 +66,11 @@ Subscribing to quotes allows a user to stream real time quotes that are publishe
 {% tabs %}
 {% tab title="Subscribe to Filtered Quotes Example" %}
 ```javascript
-'test.quotes.premia.finance'
-const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
+const { WebSocket } = require('ws')
+const { parseEther } = require("ethers");
 
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
+const wsUrl = 'test.quotes.premia.finance'
+const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
 
 const authMessage = {
   type: "AUTH",
@@ -100,7 +83,7 @@ Optional params in body include:
 poolAddress -> specific option market
 size -> stringified 10^18 value
 side -> 'bid' or 'ask'
-taker -> taker address
+taker -> taker address (use if publishing RFQ)
 provider -> quote provider address
  */
 const filterMessage = {
@@ -116,13 +99,22 @@ const ws = new WebSocket(`wss://${wsUrl}`)
 function connectWebsocket() {
   ws.onopen = (event) => {
     console.log("Websocket connection open")
-    event.target.send(JSON.stringify(authMessage))
-    event.target.onmessage = (event) => {
+    ws.send(JSON.stringify(authMessage))
+    ws.onmessage = (event) => {
       console.log(JSON.parse(event.data).message)
-      ws.send(JSON.stringify(filterMessage))
-      console.log("Subcription Filter Set!")
+      sendMessage(filterMessage)
     }
   }
+}
+
+function sendMessage(_message){
+  ws.onmessage = (event) => {
+    console.log("Message Sent!")
+  }
+  ws.send(JSON.stringify(_message))
+  setTimeout(() => {
+    ws.close()
+  }, 1000)
 }
 
 connectWebsocket()
@@ -133,8 +125,115 @@ connectWebsocket()
 
 ### <mark style="color:blue;">Publish RFQ Request(s)</mark>
 
-\<UNDER CONSTRUCTION>
+If the desire is to send an RFQ request to receive personalized quotes, it must be done by sending an `RFQ` message type.  Please note that in order to RECEIVE these personalized quotes via websocket, the `FILTER` message when subscribing to quotes must include the `taker` address.  Alternatively, it is possible to use the get [rfqQuotes](rest-api.md#get-rfq\_quotes) REST API endpoint.
+
+{% tabs %}
+{% tab title="Publish RFQ Example" %}
+```javascript
+const { WebSocket } = require('ws')
+const { parseEther } = require("ethers");
+
+const wsUrl = 'test.quotes.premia.finance'
+const MOCK_API_KEY = '3423ee2bfd89491f82b351404ea8c3b7'
+
+const authMessage = {
+  type: "AUTH",
+  apiKey: MOCK_API_KEY,
+  body: null
+}
+
+const rfqPublishMessage = {
+  type: 'RFQ',
+  body: {
+    poolAddress: '0xeB785e131784ea28b6B64B605CF8aa83D69793b5',
+    side: 'ask',
+    chainId: '421613',
+    size: parseEther('1').toString(),
+    taker: '0x3D1dcc44D65C08b39029cA8673D705D7e5c4cFF2'
+  }
+}
+
+const ws = new WebSocket(`wss://${wsUrl}`)
+function connectWebsocket() {
+  ws.onopen = (event) => {
+    console.log("Websocket connection open")
+    ws.send(JSON.stringify(authMessage))
+    ws.onmessage = (event) => {
+      console.log(JSON.parse(event.data).message)
+      sendMessage(rfqPublishMessage)
+    }
+  }
+}
+
+function sendMessage(_message){
+  ws.onmessage = (event) => {
+    console.log("Message Sent!")
+  }
+  ws.send(JSON.stringify(_message))
+  setTimeout(() => {
+    ws.close()
+  }, 1000)
+}
+
+connectWebsocket()
+```
+{% endtab %}
+{% endtabs %}
 
 ### <mark style="color:blue;">Subscribe to RFQ Requests</mark>
 
-\<UNDER CONSTRUCTION>
+As a market maker who would like to provide quotes to users who want to utilize RFQ, it will require subscribing to requests to be alerted when a request is made.  In order to respond to an RFQ, market maker must publish quotes (via rest api), with the `takerAddress` populated with the requesters address, otherwise the quote is fillable by any party and will likely be missed by the requester who is listening for quotes with their address populated in the `takerAddress` field of a quote.
+
+{% tabs %}
+{% tab title="Subscribe to RFQ Example" %}
+```javascript
+const { WebSocket } = require('ws')
+
+const wsUrl = 'test.quotes.premia.finance'
+const MOCK_API_KEY = 'tcomp_3Zb5eacx8RV6oje1LrxpAG3a'
+
+const authMessage = {
+  type: "AUTH",
+  apiKey: MOCK_API_KEY,
+  body: null
+}
+
+/*
+Optional params in body include:
+poolAddress -> specific option market
+side -> 'bid' or 'ask'
+ */
+const rfqListenMessage= {
+  type: 'FILTER',
+  channel: 'RFQ',
+  body: {
+    chainId: '421613',
+  },
+}
+
+const ws = new WebSocket(`wss://${wsUrl}`)
+function connectWebsocket() {
+  ws.onopen = (event) => {
+    console.log("Websocket connection open")
+    ws.send(JSON.stringify(authMessage))
+    ws.onmessage = (event) => {
+      console.log(JSON.parse(event.data).message)
+      sendMessage(rfqListenMessage)
+    }
+  }
+}
+
+function sendMessage(_message){
+  ws.onmessage = (event) => {
+    console.log("Message Sent!")
+  }
+  ws.send(JSON.stringify(_message))
+  setTimeout(() => {
+    ws.close()
+  }, 1000)
+}
+
+connectWebsocket()
+```
+{% endtab %}
+{% endtabs %}

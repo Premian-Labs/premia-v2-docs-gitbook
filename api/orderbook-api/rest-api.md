@@ -22,8 +22,8 @@ Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](
 #### Example:
 
 ```javascript
-import fetch from 'cross-fetch';
-import { parseEther } from 'ethers';
+const { fetch } = require ('cross-fetch')
+const { parseEther } = require("ethers");
 
 const url = 'https://test.orderbook.premia.finance/quotes'
 
@@ -87,8 +87,8 @@ publishQuote(mockQuotes)
 #### Example:
 
 ```javascript
-import fetch from 'cross-fetch';
-import { parseEther } from 'ethers';
+const { fetch } = require ('cross-fetch')
+const { parseEther } = require("ethers");
 
 const baseUrl = 'https://test.orderbook.premia.finance'
 
@@ -132,8 +132,8 @@ getQuotes(poolAddress, size, side, chainId)
 {% endswagger %}
 
 ```javascript
-import fetch from 'cross-fetch';
-import { parseEther } from 'ethers';
+const { fetch } = require ('cross-fetch')
+const { parseEther } = require("ethers");
 
 const baseUrl = 'https://test.orderbook.premia.finance'
 
