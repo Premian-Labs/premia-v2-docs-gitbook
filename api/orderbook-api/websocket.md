@@ -15,7 +15,7 @@ Using the WEBSOCKET connection, it is possible to:
 
 * [_<mark style="color:blue;"><mark style="color:green;">Stream<mark style="color:green;"></mark>_](websocket.md#subscribe-to-quotes-orderbook-and-rfq) public/RFQ quotes from the orderbook in realtime
 * [_<mark style="color:green;">Publish</mark>_](websocket.md#publish-rfq-request-s) an RFQ requests (for market takers) to _receive personalized_ quotes
-* [_<mark style="color:green;">Receive</mark>_](websocket.md#subscribe-to-rfq-requests) _RFQ_ requests (for market makers) to subsequently provide personalize quotes
+* [_<mark style="color:green;">Stream</mark>_](websocket.md#subscribe-to-rfq-requests) _RFQ_ requests (for market makers) to subsequently provide personalize quotes
 
 ### <mark style="color:blue;">Authorize Websocket</mark>
 
