@@ -42,6 +42,11 @@ Anyone is eligible to participate in the bug bounty program, except for the Prem
 * Any attempt to exploit a vulnerability for personal gain will result in disqualification from the program and possible legal action.
 * The Premia Finance team reserves the right to modify or terminate the bug bounty program at any time without notice.
 
+Known Areas where the concern is acknowledged, however, no action will be taken:
+
+* V2 Contracts utilize the ChainLink function: latestAnswer(), which is no longer the recommended (latestRoundData) method to retrieve Oracle price.
+* V2 Contracts do not utilize the ChainLink variable: latestTimestamp to validate that a stale price is not being utilized.
+
 ### Reporting a Vulnerability <a href="#reportingavulnerability" id="reportingavulnerability"></a>
 
 To report a vulnerability, please submit via the Hat's Anon Friendly Portal: [https://app.hats.finance/vulnerability](https://app.hats.finance/vulnerability)\
@@ -57,4 +62,4 @@ The Premia Finance bug bounty program is an important part of our commitment to 
 
 
 **About Hats Finance**\
-Hats Finance is the first of its kind, community-owned and decentralized bug bounty protocol. Because security exploits affect all parties involved, Hats Finance facilitates community involvement by allowing users to provide liquidity to their favorite bounties and earn $HAT tokens once they become available. We hope that by allowing community involvement we can raise awareness on the importance of security in crypto while encouraging white-hat hacker involvement.  Learn more about the Hats mechanism [here](https://hatsfinance.medium.com/running-decentralized-and-community-oriented-bug-bounties-70605d769bbe) and deposit in the Premia’s bug bounty through the [Hats dApp.](https://app.hats.finance/vaults)****
+Hats Finance is the first of its kind, community-owned and decentralized bug bounty protocol. Because security exploits affect all parties involved, Hats Finance facilitates community involvement by allowing users to provide liquidity to their favorite bounties and earn $HAT tokens once they become available. We hope that by allowing community involvement we can raise awareness on the importance of security in crypto while encouraging white-hat hacker involvement.  Learn more about the Hats mechanism [here](https://hatsfinance.medium.com/running-decentralized-and-community-oriented-bug-bounties-70605d769bbe) and deposit in the Premia’s bug bounty through the [Hats dApp.](https://app.hats.finance/vaults)
