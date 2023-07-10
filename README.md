@@ -1,29 +1,24 @@
 ---
-description: >-
-  Premia's automated options market enables best-in-class pricing based on
-  realtime supply and demand, bringing fully-featured peer-to-pool trading and
-  capital efficiency to DeFi options.
+cover: .gitbook/assets/KnowledgeBase.svg
+coverY: 0
 ---
 
-# Overview
+# What is Premia?
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+To begin, we should make clear the distinctions between the different areas of "Premia", some of which may confuse new users.
 
-_**The key problems Premia solves compared to other options protocols:‌**_
+#### <mark style="color:blue;">**The Premia Protocol**</mark>
 
-* **Market driven option pricing**
-* **Capital efficient pool-to-peer architecture**
-* **Optimal liquidity pool utilization**
-* **Risk management and instant withdrawals for liquidity providers**
+A suite of upgradable smart contracts that together facilitates peer-to-peer market making and trading of options on ERC-20 tokens available on the Ethereum blockchain along with a settlement engine. This can be thought of as the “base” layer.
 
-### Key Premia innovations:‌
+#### <mark style="color:blue;">**Premia Vault Depot**</mark>
 
-* **Market driven options pricing** - Each pool on Premia takes into account the relative supply and demand of capital within that pool to ensure a market-clearing options price is reached. This ensures optimal pool utilization at fair prices.
-* **Liquidity sensitive returns to LPs** - Returns on liquidity (options premiums) are priced according to the supply/demand of capital in each pool. Larger demand means higher option prices, which translates to greater returns for LPs.
-* **Granular liquidity provision** - LPs have control over which markets they underwrite, as opposed to underwriting the entire volatility market. LPs can implement customized strategies to granularly provision their liquidity only to the pools (and options) they desire.
-* **Self-incentivizing initial liquidity** - The automated pool pricing mechanism incentivizes liquidity providers to enter a pool from the time it's launched, to get the highest returns. This ensures lower slippage by the time the first options are bought from the pool.
-* **Dynamic Premia token rewards** - Liquidity providers and PREMIA staking users accrue PREMIA tokens over time through our Liquidity Mining program and vxPREMIA system, respectively. The amount rewarded depends on the size of their position and the length of the deposit (additionally, the amount of protocol fees generated determines the total size of rewards for PREMIA staking users).
+A suite of in-house and third party smart contracts, composed _on top_ of The Premia Protocol, that enables additional user functionality such as participation in automated strategies, leverage, and risk management on the Ethereum blockchain.
 
-<figure><img src=".gitbook/assets/image (11).png" alt=""><figcaption><p>A list of some of the features that make Premia unique.</p></figcaption></figure>
+#### <mark style="color:blue;">**The Premia Interface**</mark>
 
-**Continue reading to learn about the many other features and innovations that make Premia unique!**
+A web interface that allows for easy interaction with the Premia protocol. The interface is only one of many ways one may interact with the Premia protocol.
+
+#### <mark style="color:blue;">**Premia Governance**</mark>
+
+A governance system for governing the Premia Protocol, enabled by staking PREMIA token and receiving vxPremia.
