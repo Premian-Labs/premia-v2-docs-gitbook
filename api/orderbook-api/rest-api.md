@@ -11,12 +11,12 @@ description: Rest API End Points
 | Arbitrum Goerli (421613) | https://test.orderbook.premia.finance |
 | Arbitrum One (42161)     | https://orderbook.premia.finance      |
 
-Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](rest-api.md#publish-quotes) methods of the REST API _directly_ using the `/quotes` end-point.  Additionally, for users who have requested an RFQ quote, the quotes returned can be accessed via [`GET` rfq\_quotes](rest-api.md#get-rfq\_quotes).  In order to use REST API endpoints, you must also pass in an [API KEY](./#api-key). &#x20;
+Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](rest-api.md#publish-quotes) methods of the REST API _directly_ using the `/quotes` end-point. Additionally, for users who have requested an RFQ quote, the quotes returned can be accessed via [`GET` rfq\_quotes](rest-api.md#get-rfq\_quotes). In order to use REST API endpoints, you must also pass in an [API KEY](./#api-key).
 
 ### <mark style="color:blue;">Publish Quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/quotes" method="post" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/quotes" method="post" %}
+[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
 {% endswagger %}
 
 #### Example:
@@ -80,8 +80,8 @@ publishQuote(mockQuotes)
 
 ### <mark style="color:blue;">Get Quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/quotes" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/quotes" method="get" %}
+[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
 {% endswagger %}
 
 #### Example:
@@ -127,8 +127,8 @@ getQuotes(poolAddress, size, side, chainId)
 
 ### <mark style="color:blue;">Get rfq\_quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi.yaml" path="/rfq_quotes" method="get" %}
-[openapi.yaml](../../.gitbook/assets/openapi.yaml)
+{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/rfq_quotes" method="get" %}
+[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
 {% endswagger %}
 
 ```javascript
@@ -168,5 +168,4 @@ async getRfqQuotes(_addr, _side, _chainId, _taker){
 }
 
 getRfqQuotes(poolAddress, side, chainId, takerAddress)
-
 ```

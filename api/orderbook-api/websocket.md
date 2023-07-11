@@ -13,15 +13,13 @@ description: Websocket Functionality
 
 Using the WEBSOCKET connection, it is possible to:
 
-* [_<mark style="color:blue;"><mark style="color:green;">Stream<mark style="color:green;"></mark>_](websocket.md#subscribe-to-quotes-orderbook-and-rfq) public/RFQ quotes from the orderbook in realtime
+* [_<mark style="color:green;"><mark style="color:blue;">Stream<mark style="color:blue;"></mark>_](websocket.md#subscribe-to-quotes-orderbook-and-rfq) public/RFQ quotes from the orderbook in realtime
 * [_<mark style="color:green;">Publish</mark>_](websocket.md#publish-rfq-request-s) an RFQ requests (for market takers) to _receive personalized_ quotes
 * [_<mark style="color:green;">Stream</mark>_](websocket.md#subscribe-to-rfq-requests) _RFQ_ requests (for market makers) to subsequently provide personalize quotes
 
 ### <mark style="color:blue;">Authorize Websocket</mark>
 
-Upon connection with the Websocket server, users must send an `AUTH` message with an api key.  If this step is not done, any requests to _Stream_ quotes or _Publish_ RFQ requests will be denied.&#x20;
-
-
+Upon connection with the Websocket server, users must send an `AUTH` message with an api key. If this step is not done, any requests to _Stream_ quotes or _Publish_ RFQ requests will be denied.
 
 {% tabs %}
 {% tab title="Authorization Websocket Example" %}
@@ -52,16 +50,12 @@ function connectWebsocket() {
 
 connectWebsocket()
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
 ### <mark style="color:blue;">Subscribe to Quotes (Orderbook & RFQ)</mark>
 
-Subscribing to quotes allows a user to stream real time quotes that are published to the orderbook along with any private quotes that may also be available from an [RFQ request](websocket.md#publish-rfq-request-s).  By default, ALL public quotes are subscribed to upon authorization of a websocket connection. `FILTER` messages are required.
-
-
+Subscribing to quotes allows a user to stream real time quotes that are published to the orderbook along with any private quotes that may also be available from an [RFQ request](websocket.md#publish-rfq-request-s). By default, ALL public quotes are subscribed to upon authorization of a websocket connection. `FILTER` messages are required.
 
 {% tabs %}
 {% tab title="Subscribe to Filtered Quotes Example" %}
@@ -126,7 +120,7 @@ connectWebsocket()
 
 ### <mark style="color:blue;">Publish RFQ Request(s)</mark>
 
-If the desire is to send an RFQ request to receive personalized quotes, it must be done by sending an `RFQ` message type.  Please note that in order to RECEIVE these personalized quotes via websocket, the `FILTER` message when subscribing to quotes must include the `taker` address.  Alternatively, it is possible to use the get [rfqQuotes](rest-api.md#get-rfq\_quotes) REST API endpoint.
+If the desire is to send an RFQ request to receive personalized quotes, it must be done by sending an `RFQ` message type. Please note that in order to RECEIVE these personalized quotes via websocket, the `FILTER` message when subscribing to quotes must include the `taker` address. Alternatively, it is possible to use the get [rfqQuotes](rest-api.md#get-rfq\_quotes) REST API endpoint.
 
 {% tabs %}
 {% tab title="Publish RFQ Example" %}
@@ -184,7 +178,7 @@ connectWebsocket()
 
 ### <mark style="color:blue;">Subscribe to RFQ Requests</mark>
 
-As a market maker who would like to provide quotes to users who want to utilize RFQ, it will require subscribing to requests to be alerted when a request is made.  In order to respond to an RFQ, market maker must publish quotes (via rest api), with the `takerAddress` populated with the requesters address, otherwise the quote is fillable by any party and will likely be missed by the requester who is listening for quotes with their address populated in the `takerAddress` field of a quote.
+As a market maker who would like to provide quotes to users who want to utilize RFQ, it will require subscribing to requests to be alerted when a request is made. In order to respond to an RFQ, market maker must publish quotes (via rest api), with the `takerAddress` populated with the requesters address, otherwise the quote is fillable by any party and will likely be missed by the requester who is listening for quotes with their address populated in the `takerAddress` field of a quote.
 
 {% tabs %}
 {% tab title="Subscribe to RFQ Example" %}
