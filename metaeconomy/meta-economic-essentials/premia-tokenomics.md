@@ -6,7 +6,7 @@ description: >-
 
 # PREMIA Tokenomics
 
-Current allocation is below, this is subject to change in combination with the implementation of [vxPremia](../vxpremia-core/) and [Blue Descent](../../governance/premian-civitas/blue-descent.md), however all changes require ratification via the [Vote Process.](../../governance/premian-civitas/premian-assembly.md)
+Current allocation is below, this is subject to change in combination with the implementation of [vxPremia](../vxpremia-core/) and [Blue Descent](../../governance/premian-civitas-1/blue-descent.md), however all changes require ratification via the [Vote Process.](../../governance/premian-civitas-1/premian-assembly.md)
 
 * 30% Cross-Chain Liquidity Mining Fund (Liq Mining)
 * 20% Development Fund (Operator)

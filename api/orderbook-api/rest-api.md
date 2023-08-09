@@ -15,8 +15,8 @@ Users can access the [`GET` quotes](rest-api.md#get-quotes) and [`POST` quotes](
 
 ### <mark style="color:blue;">Publish Quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/quotes" method="post" %}
-[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
+{% swagger src="../../.gitbook/assets/openapi (2).yaml" path="/quotes" method="post" %}
+[openapi (2).yaml](<../../.gitbook/assets/openapi (2).yaml>)
 {% endswagger %}
 
 #### Example:
@@ -80,8 +80,8 @@ publishQuote(mockQuotes)
 
 ### <mark style="color:blue;">Get Quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/quotes" method="get" %}
-[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
+{% swagger src="../../.gitbook/assets/openapi (2).yaml" path="/quotes" method="get" %}
+[openapi (2).yaml](<../../.gitbook/assets/openapi (2).yaml>)
 {% endswagger %}
 
 #### Example:
@@ -127,8 +127,8 @@ getQuotes(poolAddress, size, side, chainId)
 
 ### <mark style="color:blue;">Get rfq\_quotes</mark>
 
-{% swagger src="../../.gitbook/assets/openapi (1).yaml" path="/rfq_quotes" method="get" %}
-[openapi (1).yaml](<../../.gitbook/assets/openapi (1).yaml>)
+{% swagger src="../../.gitbook/assets/openapi (2).yaml" path="/rfq_quotes" method="get" %}
+[openapi (2).yaml](<../../.gitbook/assets/openapi (2).yaml>)
 {% endswagger %}
 
 ```javascript

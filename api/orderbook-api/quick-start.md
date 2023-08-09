@@ -11,9 +11,9 @@ description: Overview
 | Arbitrum Goerli (421613) | https://test.orderbook.premia.finance |
 | Arbitrum One (42161)     | https://orderbook.premia.finance      |
 
-### <mark style="color:blue;">REST</mark>
+#### <mark style="color:blue;">REST</mark>
 
-Users can access the [`GET` Quotes ](get-quotes.md)and [`POST` Quotes](publish-quote-s.md) methods of the REST API _directly_ using the `/quotes` end-point. &#x20;
+Users can access the [`GET` Quotes ](get-quotes.md)and [`POST` Quotes](publish-quote-s.md) methods of the REST API _directly_ using the `/quotes` end-point.
 {% endtab %}
 
 {% tab title="WEBSOCKET URL" %}
@@ -22,7 +22,7 @@ Users can access the [`GET` Quotes ](get-quotes.md)and [`POST` Quotes](publish-q
 | Arbitrum Goerli (421613) | ws://test.orderbook.premia.finance |
 | Arbitrum One (42161)     | ws://orderbook.premia.finance      |
 
-### <mark style="color:blue;">Overview</mark>
+#### <mark style="color:blue;">Overview</mark>
 
 :construction: Premia's Orderbook websocket is currently under construction. Please check back soon for more details!
 {% endtab %}
@@ -33,4 +33,3 @@ Users can access the [`GET` Quotes ](get-quotes.md)and [`POST` Quotes](publish-q
 <mark style="color:red;">\<INSERT RATE LIMITS></mark>
 
 <mark style="color:red;">\<INSERT TIERS></mark>
-
